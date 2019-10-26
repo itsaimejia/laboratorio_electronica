@@ -82,7 +82,6 @@ namespace ControlLaboratorioElectronica
 
 		private void btnPrestamosExt_Click(object sender, EventArgs e)
 		{
-			
 			Form frm = canvas.Controls.OfType<Form>().Where(o => o.Name.Contains("canvasPrestamosExt")).FirstOrDefault();
 			if (frm == null)
 			{
