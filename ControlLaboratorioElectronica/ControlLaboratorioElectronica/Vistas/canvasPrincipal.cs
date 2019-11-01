@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControlLaboratorioElectronica.Vistas;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,5 +79,11 @@ namespace ControlLaboratorioElectronica
 			txtBuscar.Text = "";
 			txtBuscar.Focus();
 		}
-	}
+
+        private void BtnNuevoDocente_Click(object sender, EventArgs e)
+        {
+            extNuevoProfesor fr = new extNuevoProfesor();
+            fr.Show();
+        }
+    }
 }
