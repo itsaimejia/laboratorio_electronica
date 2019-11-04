@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +48,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Desktop\Bunifu_UI_v1.5.3.dll</HintPath>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\..\..\..\..\Documents\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -55,6 +69,11 @@
     <Compile Include="Modelos\Alumno.cs" />
     <Compile Include="Modelos\Docente.cs" />
     <Compile Include="Modelos\Prestamo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\canvasEstadistico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,11 +100,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vistas\extNuevoProfesor.cs">
+    <Compile Include="Vistas\extDetalleClase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\extNuevoProfesor.Designer.cs">
-      <DependentUpon>extNuevoProfesor.cs</DependentUpon>
+    <Compile Include="Vistas\extDetalleClase.Designer.cs">
+      <DependentUpon>extDetalleClase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\extNuevaClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\extNuevaClase.Designer.cs">
+      <DependentUpon>extNuevaClase.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Vistas\canvasEstadistico.resx">
       <DependentUpon>canvasEstadistico.cs</DependentUpon>
@@ -101,16 +126,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="Vistas\extNuevoProfesor.resx">
-      <DependentUpon>extNuevoProfesor.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\extDetalleClase.resx">
+      <DependentUpon>extDetalleClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\extNuevaClase.resx">
+      <DependentUpon>extNuevaClase.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,10 +176,30 @@
     <None Include="recursos\limpiar.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LaboratorioElectronica.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LaboratorioElectronica_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>LaboratorioElectronica.mdf</DependentUpon>
+    </Content>
     <Content Include="recursos\agregar-carpeta.png" />
+    <None Include="recursos\minimizar.png" />
+    <None Include="recursos\clase.png" />
     <Content Include="recursos\guardar.png" />
-    <None Include="Resources\guardar.png" />
-    <None Include="Resources\agregar-carpeta.png" />
+    <Content Include="recursos\lista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

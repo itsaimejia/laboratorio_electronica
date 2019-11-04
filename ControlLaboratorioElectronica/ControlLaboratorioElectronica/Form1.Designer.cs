@@ -33,19 +33,22 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
 			this.panelMenu = new System.Windows.Forms.Panel();
-			this.panelHeader = new System.Windows.Forms.Panel();
-			this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
 			this.panelTransicion = new BunifuAnimatorNS.BunifuTransition(this.components);
 			this.canvas = new System.Windows.Forms.Panel();
-			this.btnExit = new Bunifu.Framework.UI.BunifuImageButton();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+			this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+			this.btnMinimizar = new Bunifu.Framework.UI.BunifuImageButton();
+			this.btnCerrar = new Bunifu.Framework.UI.BunifuImageButton();
 			this.btnMenu = new Bunifu.Framework.UI.BunifuImageButton();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.btnEstadistico = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.btnPrestamosExt = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.btnPrincipal = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.panelMenu.SuspendLayout();
-			this.panelHeader.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
+			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
@@ -67,30 +70,6 @@
 			this.panelMenu.Name = "panelMenu";
 			this.panelMenu.Size = new System.Drawing.Size(49, 579);
 			this.panelMenu.TabIndex = 1;
-			// 
-			// panelHeader
-			// 
-			this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.panelHeader.Controls.Add(this.btnExit);
-			this.panelHeader.Controls.Add(this.btnMenu);
-			this.panelHeader.Controls.Add(this.bunifuCustomLabel1);
-			this.panelTransicion.SetDecoration(this.panelHeader, BunifuAnimatorNS.DecorationType.None);
-			this.panelHeader.Location = new System.Drawing.Point(-3, 0);
-			this.panelHeader.Name = "panelHeader";
-			this.panelHeader.Size = new System.Drawing.Size(884, 49);
-			this.panelHeader.TabIndex = 1;
-			// 
-			// bunifuCustomLabel1
-			// 
-			this.bunifuCustomLabel1.AutoSize = true;
-			this.panelTransicion.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
-			this.bunifuCustomLabel1.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-			this.bunifuCustomLabel1.Location = new System.Drawing.Point(48, 13);
-			this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-			this.bunifuCustomLabel1.Size = new System.Drawing.Size(350, 28);
-			this.bunifuCustomLabel1.TabIndex = 0;
-			this.bunifuCustomLabel1.Text = "Laboratorio de Electronica";
 			// 
 			// panelTransicion
 			// 
@@ -122,20 +101,68 @@
 			this.canvas.TabIndex = 2;
 			this.canvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseClick);
 			// 
-			// btnExit
+			// panel1
 			// 
-			this.btnExit.BackColor = System.Drawing.Color.Transparent;
-			this.panelTransicion.SetDecoration(this.btnExit, BunifuAnimatorNS.DecorationType.None);
-			this.btnExit.Image = global::ControlLaboratorioElectronica.Properties.Resources.exit;
-			this.btnExit.ImageActive = null;
-			this.btnExit.Location = new System.Drawing.Point(862, 3);
-			this.btnExit.Name = "btnExit";
-			this.btnExit.Size = new System.Drawing.Size(20, 20);
-			this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.btnExit.TabIndex = 0;
-			this.btnExit.TabStop = false;
-			this.btnExit.Zoom = 10;
-			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.panel1.Controls.Add(this.btnMinimizar);
+			this.panel1.Controls.Add(this.btnCerrar);
+			this.panel1.Controls.Add(this.bunifuCustomLabel1);
+			this.panel1.Controls.Add(this.btnMenu);
+			this.panelTransicion.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(881, 49);
+			this.panel1.TabIndex = 3;
+			// 
+			// bunifuCustomLabel1
+			// 
+			this.bunifuCustomLabel1.AutoSize = true;
+			this.panelTransicion.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
+			this.bunifuCustomLabel1.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
+			this.bunifuCustomLabel1.Location = new System.Drawing.Point(54, 9);
+			this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+			this.bunifuCustomLabel1.Size = new System.Drawing.Size(350, 28);
+			this.bunifuCustomLabel1.TabIndex = 1;
+			this.bunifuCustomLabel1.Text = "Laboratorio de Electronica";
+			// 
+			// bunifuDragControl1
+			// 
+			this.bunifuDragControl1.Fixed = true;
+			this.bunifuDragControl1.Horizontal = true;
+			this.bunifuDragControl1.TargetControl = this.panel1;
+			this.bunifuDragControl1.Vertical = true;
+			// 
+			// btnMinimizar
+			// 
+			this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
+			this.panelTransicion.SetDecoration(this.btnMinimizar, BunifuAnimatorNS.DecorationType.None);
+			this.btnMinimizar.Image = global::ControlLaboratorioElectronica.Properties.Resources.minimizar;
+			this.btnMinimizar.ImageActive = null;
+			this.btnMinimizar.Location = new System.Drawing.Point(813, 9);
+			this.btnMinimizar.Name = "btnMinimizar";
+			this.btnMinimizar.Size = new System.Drawing.Size(25, 23);
+			this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.btnMinimizar.TabIndex = 5;
+			this.btnMinimizar.TabStop = false;
+			this.btnMinimizar.Zoom = 10;
+			this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+			// 
+			// btnCerrar
+			// 
+			this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+			this.panelTransicion.SetDecoration(this.btnCerrar, BunifuAnimatorNS.DecorationType.None);
+			this.btnCerrar.Image = global::ControlLaboratorioElectronica.Properties.Resources.exit;
+			this.btnCerrar.ImageActive = null;
+			this.btnCerrar.Location = new System.Drawing.Point(844, 9);
+			this.btnCerrar.Name = "btnCerrar";
+			this.btnCerrar.Size = new System.Drawing.Size(25, 23);
+			this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.btnCerrar.TabIndex = 4;
+			this.btnCerrar.TabStop = false;
+			this.btnCerrar.Zoom = 10;
+			this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
 			// 
 			// btnMenu
 			// 
@@ -143,7 +170,7 @@
 			this.panelTransicion.SetDecoration(this.btnMenu, BunifuAnimatorNS.DecorationType.None);
 			this.btnMenu.Image = global::ControlLaboratorioElectronica.Properties.Resources.menu;
 			this.btnMenu.ImageActive = null;
-			this.btnMenu.Location = new System.Drawing.Point(14, 12);
+			this.btnMenu.Location = new System.Drawing.Point(12, 12);
 			this.btnMenu.Name = "btnMenu";
 			this.btnMenu.Size = new System.Drawing.Size(28, 29);
 			this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -277,7 +304,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(881, 578);
-			this.Controls.Add(this.panelHeader);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panelMenu);
 			this.Controls.Add(this.canvas);
 			this.panelTransicion.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
@@ -286,9 +313,10 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			this.panelMenu.ResumeLayout(false);
-			this.panelHeader.ResumeLayout(false);
-			this.panelHeader.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
@@ -302,13 +330,15 @@
 		private Bunifu.Framework.UI.BunifuFlatButton btnPrincipal;
 		private Bunifu.Framework.UI.BunifuFlatButton btnEstadistico;
 		private Bunifu.Framework.UI.BunifuFlatButton btnPrestamosExt;
-		private Bunifu.Framework.UI.BunifuImageButton btnMenu;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.Panel panelHeader;
-		private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
 		private BunifuAnimatorNS.BunifuTransition panelTransicion;
 		private System.Windows.Forms.Panel canvas;
-		private Bunifu.Framework.UI.BunifuImageButton btnExit;
+		private Bunifu.Framework.UI.BunifuImageButton btnMenu;
+		private System.Windows.Forms.Panel panel1;
+		private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+		private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+		private Bunifu.Framework.UI.BunifuImageButton btnCerrar;
+		private Bunifu.Framework.UI.BunifuImageButton btnMinimizar;
 	}
 }
 

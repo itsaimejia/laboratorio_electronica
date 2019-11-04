@@ -108,5 +108,15 @@ namespace ControlLaboratorioElectronica
 			if (panelMenu.Width > 49)
 				despliegueMenu();
 		}
+
+		private void btnCerrar_Click(object sender, EventArgs e)
+		{
+			Environment.Exit(0);
+		}
+
+		private void btnMinimizar_Click(object sender, EventArgs e)
+		{
+			this.WindowState = FormWindowState.Minimized;
+		}
 	}
 }

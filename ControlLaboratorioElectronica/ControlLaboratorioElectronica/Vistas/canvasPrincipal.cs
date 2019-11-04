@@ -27,23 +27,24 @@ namespace ControlLaboratorioElectronica
 		public void update()
 		{
 			ArrayList row = new ArrayList();
-			row.Add("Btsai Zempoatecatl Mejia");
-			row.Add("4sa");
-			dgvDocentes.Rows.Add(row.ToArray());
-
 			row = new ArrayList();
-			row.Add("Ctsai Zempoatecatl Mejia");
 			row.Add("4sa");
-			dgvDocentes.Rows.Add(row.ToArray());
-
-			row = new ArrayList();
 			row.Add("Dtsai Zempoatecatl Mejia");
-			row.Add("4sa");
 			dgvDocentes.Rows.Add(row.ToArray());
 
 			row = new ArrayList();
+			row.Add("5sa");
 			row.Add("Etsai Zempoatecatl Mejia");
-			row.Add("4sa");
+			dgvDocentes.Rows.Add(row.ToArray());
+
+			row = new ArrayList();
+			row.Add("6sa");
+			row.Add("Ttsai Zempoatecatl Mejia");
+			dgvDocentes.Rows.Add(row.ToArray());
+
+			row = new ArrayList();
+			row.Add("7sa");
+			row.Add("Ptsai Zempoatecatl Mejia");
 			dgvDocentes.Rows.Add(row.ToArray());
 		}
 
@@ -58,9 +59,9 @@ namespace ControlLaboratorioElectronica
 				}
 				foreach (DataGridViewRow r in dgvDocentes.Rows)
 				{
-					foreach (DataGridViewCell c	in r.Cells)
+					foreach (DataGridViewCell c in r.Cells)
 					{
-						if (c.Value.ToString().ToUpper().IndexOf(txtBuscar.Text.ToUpper())==0)
+						if (c.Value.ToString().ToUpper().IndexOf(txtBuscar.Text.ToUpper()) == 0)
 						{
 							r.Visible = true;
 							break;
@@ -80,10 +81,26 @@ namespace ControlLaboratorioElectronica
 			txtBuscar.Focus();
 		}
 
-        private void BtnNuevoDocente_Click(object sender, EventArgs e)
-        {
-            extNuevoProfesor fr = new extNuevoProfesor();
-            fr.Show();
-        }
-    }
+
+
+		private void dgvDocentes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			DataGridViewRow datos = dgvDocentes.Rows[e.RowIndex];
+			extDetalleClase extDetalleClase = new extDetalleClase()
+			{
+				grupo=datos.Cells["Grupo"].Value.ToString(),
+				nombre=datos.Cells["NombreProfesor"].Value.ToString()
+
+			};
+			extDetalleClase.Show();
+		}
+
+		private void btnNuevaClase_Click(object sender, EventArgs e)
+		{
+			extNuevaClase fr = new extNuevaClase();
+			fr.Show();
+
+			
+		}
+	}
 }
