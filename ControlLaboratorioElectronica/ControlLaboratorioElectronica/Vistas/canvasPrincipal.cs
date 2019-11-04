@@ -30,21 +30,25 @@ namespace ControlLaboratorioElectronica
 			row = new ArrayList();
 			row.Add("4sa");
 			row.Add("Dtsai Zempoatecatl Mejia");
+			row.Add("Electronica");
 			dgvDocentes.Rows.Add(row.ToArray());
 
 			row = new ArrayList();
 			row.Add("5sa");
 			row.Add("Etsai Zempoatecatl Mejia");
+			row.Add("Matematicas");
 			dgvDocentes.Rows.Add(row.ToArray());
 
 			row = new ArrayList();
 			row.Add("6sa");
 			row.Add("Ttsai Zempoatecatl Mejia");
+			row.Add("Fisica");
 			dgvDocentes.Rows.Add(row.ToArray());
 
 			row = new ArrayList();
 			row.Add("7sa");
 			row.Add("Ptsai Zempoatecatl Mejia");
+			row.Add("Quimica");
 			dgvDocentes.Rows.Add(row.ToArray());
 		}
 
@@ -86,12 +90,7 @@ namespace ControlLaboratorioElectronica
 		private void dgvDocentes_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 			DataGridViewRow datos = dgvDocentes.Rows[e.RowIndex];
-			extDetalleClase extDetalleClase = new extDetalleClase()
-			{
-				grupo=datos.Cells["Grupo"].Value.ToString(),
-				nombre=datos.Cells["NombreProfesor"].Value.ToString()
-
-			};
+			extDetalleClase extDetalleClase = new extDetalleClase();
 			extDetalleClase.Show();
 		}
 
@@ -101,6 +100,11 @@ namespace ControlLaboratorioElectronica
 			fr.Show();
 
 			
+		}
+
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+			lblDate.Text = string.Format($"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToString("h:mm:ss")}");
 		}
 	}
 }

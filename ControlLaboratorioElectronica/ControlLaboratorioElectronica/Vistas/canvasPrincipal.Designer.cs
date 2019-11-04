@@ -39,6 +39,8 @@
 			this.NombreProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Detalles = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.lblDate = new System.Windows.Forms.Label();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
@@ -72,6 +74,7 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.lblDate);
 			this.groupBox1.Controls.Add(this.btnNuevaClase);
 			this.groupBox1.Controls.Add(this.btnLimpiar);
 			this.groupBox1.Controls.Add(this.dgvDocentes);
@@ -105,7 +108,7 @@
 			this.btnNuevaClase.IconVisible = true;
 			this.btnNuevaClase.IconZoom = 90D;
 			this.btnNuevaClase.IsTab = false;
-			this.btnNuevaClase.Location = new System.Drawing.Point(568, 24);
+			this.btnNuevaClase.Location = new System.Drawing.Point(577, 24);
 			this.btnNuevaClase.Margin = new System.Windows.Forms.Padding(5);
 			this.btnNuevaClase.Name = "btnNuevaClase";
 			this.btnNuevaClase.Normalcolor = System.Drawing.Color.Transparent;
@@ -185,6 +188,21 @@
 			this.Detalles.Text = "Detalles";
 			this.Detalles.UseColumnTextForButtonValue = true;
 			// 
+			// lblDate
+			// 
+			this.lblDate.AutoSize = true;
+			this.lblDate.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblDate.Location = new System.Drawing.Point(615, -3);
+			this.lblDate.Name = "lblDate";
+			this.lblDate.Size = new System.Drawing.Size(91, 15);
+			this.lblDate.TabIndex = 8;
+			this.lblDate.Text = "fecha y hora";
+			// 
+			// timer1
+			// 
+			this.timer1.Enabled = true;
+			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
 			// canvasPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +215,7 @@
 			this.Text = "canvasPrincipal";
 			this.Load += new System.EventHandler(this.canvasPrincipal_Load);
 			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).EndInit();
 			this.ResumeLayout(false);
@@ -215,5 +234,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn NombreProfesor;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
 		private System.Windows.Forms.DataGridViewButtonColumn Detalles;
+		private System.Windows.Forms.Label lblDate;
+		private System.Windows.Forms.Timer timer1;
 	}
 }

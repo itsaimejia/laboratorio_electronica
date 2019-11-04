@@ -186,6 +186,7 @@
     <Content Include="recursos\agregar-carpeta.png" />
     <None Include="recursos\minimizar.png" />
     <None Include="recursos\clase.png" />
+    <None Include="recursos\finalizar.png" />
     <Content Include="recursos\guardar.png" />
     <Content Include="recursos\lista.png" />
   </ItemGroup>
