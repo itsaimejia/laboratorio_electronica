@@ -31,9 +31,9 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(canvasPrestamosExt));
 			this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-			this.txt_nom = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-			this.txt_control = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-			this.txt_carre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+			this.txtNombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+			this.txtNumControl = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+			this.txtCarrera = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.dgvMaterial = new System.Windows.Forms.DataGridView();
 			this.id_material = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,8 +41,8 @@
 			this.Quitar = new System.Windows.Forms.DataGridViewButtonColumn();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
-			this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
+			this.btnGuardar = new Bunifu.Framework.UI.BunifuFlatButton();
+			this.btnListaPrestamos = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -57,64 +57,65 @@
 			this.bunifuElipse1.ElipseRadius = 5;
 			this.bunifuElipse1.TargetControl = this;
 			// 
-			// txt_nom
+			// txtNombre
 			// 
-			this.txt_nom.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txt_nom.Enabled = false;
-			this.txt_nom.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txt_nom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.txt_nom.HintForeColor = System.Drawing.Color.Empty;
-			this.txt_nom.HintText = "Nombre";
-			this.txt_nom.isPassword = false;
-			this.txt_nom.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-			this.txt_nom.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.txt_nom.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-			this.txt_nom.LineThickness = 3;
-			this.txt_nom.Location = new System.Drawing.Point(159, 105);
-			this.txt_nom.Margin = new System.Windows.Forms.Padding(4);
-			this.txt_nom.Name = "txt_nom";
-			this.txt_nom.Size = new System.Drawing.Size(270, 33);
-			this.txt_nom.TabIndex = 0;
-			this.txt_nom.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtNombre.Enabled = false;
+			this.txtNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.txtNombre.HintForeColor = System.Drawing.Color.Empty;
+			this.txtNombre.HintText = "Nombre";
+			this.txtNombre.isPassword = false;
+			this.txtNombre.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+			this.txtNombre.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.txtNombre.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+			this.txtNombre.LineThickness = 3;
+			this.txtNombre.Location = new System.Drawing.Point(159, 105);
+			this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+			this.txtNombre.Name = "txtNombre";
+			this.txtNombre.Size = new System.Drawing.Size(270, 33);
+			this.txtNombre.TabIndex = 0;
+			this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			// 
-			// txt_control
+			// txtNumControl
 			// 
-			this.txt_control.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txt_control.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txt_control.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.txt_control.HintForeColor = System.Drawing.Color.Empty;
-			this.txt_control.HintText = "No. Control";
-			this.txt_control.isPassword = false;
-			this.txt_control.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-			this.txt_control.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.txt_control.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-			this.txt_control.LineThickness = 3;
-			this.txt_control.Location = new System.Drawing.Point(159, 48);
-			this.txt_control.Margin = new System.Windows.Forms.Padding(4);
-			this.txt_control.Name = "txt_control";
-			this.txt_control.Size = new System.Drawing.Size(270, 36);
-			this.txt_control.TabIndex = 1;
-			this.txt_control.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtNumControl.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtNumControl.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtNumControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.txtNumControl.HintForeColor = System.Drawing.Color.Empty;
+			this.txtNumControl.HintText = "No. Control";
+			this.txtNumControl.isPassword = false;
+			this.txtNumControl.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+			this.txtNumControl.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.txtNumControl.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+			this.txtNumControl.LineThickness = 3;
+			this.txtNumControl.Location = new System.Drawing.Point(159, 48);
+			this.txtNumControl.Margin = new System.Windows.Forms.Padding(4);
+			this.txtNumControl.Name = "txtNumControl";
+			this.txtNumControl.Size = new System.Drawing.Size(270, 36);
+			this.txtNumControl.TabIndex = 1;
+			this.txtNumControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtNumControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumControl_KeyPress);
 			// 
-			// txt_carre
+			// txtCarrera
 			// 
-			this.txt_carre.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txt_carre.Enabled = false;
-			this.txt_carre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txt_carre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.txt_carre.HintForeColor = System.Drawing.Color.Empty;
-			this.txt_carre.HintText = "Carrera";
-			this.txt_carre.isPassword = false;
-			this.txt_carre.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-			this.txt_carre.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.txt_carre.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-			this.txt_carre.LineThickness = 3;
-			this.txt_carre.Location = new System.Drawing.Point(159, 165);
-			this.txt_carre.Margin = new System.Windows.Forms.Padding(4);
-			this.txt_carre.Name = "txt_carre";
-			this.txt_carre.Size = new System.Drawing.Size(270, 35);
-			this.txt_carre.TabIndex = 2;
-			this.txt_carre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtCarrera.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtCarrera.Enabled = false;
+			this.txtCarrera.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtCarrera.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.txtCarrera.HintForeColor = System.Drawing.Color.Empty;
+			this.txtCarrera.HintText = "Carrera";
+			this.txtCarrera.isPassword = false;
+			this.txtCarrera.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+			this.txtCarrera.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.txtCarrera.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+			this.txtCarrera.LineThickness = 3;
+			this.txtCarrera.Location = new System.Drawing.Point(159, 165);
+			this.txtCarrera.Margin = new System.Windows.Forms.Padding(4);
+			this.txtCarrera.Name = "txtCarrera";
+			this.txtCarrera.Size = new System.Drawing.Size(270, 35);
+			this.txtCarrera.TabIndex = 2;
+			this.txtCarrera.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			// 
 			// dgvMaterial
 			// 
@@ -168,13 +169,13 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.bunifuFlatButton6);
-			this.groupBox2.Controls.Add(this.bunifuFlatButton4);
+			this.groupBox2.Controls.Add(this.btnGuardar);
+			this.groupBox2.Controls.Add(this.btnListaPrestamos);
 			this.groupBox2.Controls.Add(this.bunifuFlatButton3);
 			this.groupBox2.Controls.Add(this.bunifuFlatButton2);
-			this.groupBox2.Controls.Add(this.txt_carre);
-			this.groupBox2.Controls.Add(this.txt_nom);
-			this.groupBox2.Controls.Add(this.txt_control);
+			this.groupBox2.Controls.Add(this.txtCarrera);
+			this.groupBox2.Controls.Add(this.txtNombre);
+			this.groupBox2.Controls.Add(this.txtNumControl);
 			this.groupBox2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox2.Location = new System.Drawing.Point(34, 12);
 			this.groupBox2.Name = "groupBox2";
@@ -183,76 +184,77 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Prestamos Externos";
 			// 
-			// bunifuFlatButton6
+			// btnGuardar
 			// 
-			this.bunifuFlatButton6.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-			this.bunifuFlatButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.bunifuFlatButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.bunifuFlatButton6.BorderRadius = 0;
-			this.bunifuFlatButton6.ButtonText = "Guardar";
-			this.bunifuFlatButton6.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.bunifuFlatButton6.DisabledColor = System.Drawing.Color.Gray;
-			this.bunifuFlatButton6.Enabled = false;
-			this.bunifuFlatButton6.Iconcolor = System.Drawing.Color.Transparent;
-			this.bunifuFlatButton6.Iconimage = global::ControlLaboratorioElectronica.Properties.Resources.guardar;
-			this.bunifuFlatButton6.Iconimage_right = null;
-			this.bunifuFlatButton6.Iconimage_right_Selected = null;
-			this.bunifuFlatButton6.Iconimage_Selected = null;
-			this.bunifuFlatButton6.IconMarginLeft = 0;
-			this.bunifuFlatButton6.IconMarginRight = 0;
-			this.bunifuFlatButton6.IconRightVisible = true;
-			this.bunifuFlatButton6.IconRightZoom = 0D;
-			this.bunifuFlatButton6.IconVisible = true;
-			this.bunifuFlatButton6.IconZoom = 90D;
-			this.bunifuFlatButton6.IsTab = false;
-			this.bunifuFlatButton6.Location = new System.Drawing.Point(304, 457);
-			this.bunifuFlatButton6.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-			this.bunifuFlatButton6.Name = "bunifuFlatButton6";
-			this.bunifuFlatButton6.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.bunifuFlatButton6.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-			this.bunifuFlatButton6.OnHoverTextColor = System.Drawing.Color.White;
-			this.bunifuFlatButton6.selected = false;
-			this.bunifuFlatButton6.Size = new System.Drawing.Size(136, 34);
-			this.bunifuFlatButton6.TabIndex = 15;
-			this.bunifuFlatButton6.Text = "Guardar";
-			this.bunifuFlatButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.bunifuFlatButton6.Textcolor = System.Drawing.Color.White;
-			this.bunifuFlatButton6.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnGuardar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+			this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnGuardar.BorderRadius = 0;
+			this.btnGuardar.ButtonText = "Guardar";
+			this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnGuardar.DisabledColor = System.Drawing.Color.Gray;
+			this.btnGuardar.Enabled = false;
+			this.btnGuardar.Iconcolor = System.Drawing.Color.Transparent;
+			this.btnGuardar.Iconimage = global::ControlLaboratorioElectronica.Properties.Resources.guardar;
+			this.btnGuardar.Iconimage_right = null;
+			this.btnGuardar.Iconimage_right_Selected = null;
+			this.btnGuardar.Iconimage_Selected = null;
+			this.btnGuardar.IconMarginLeft = 0;
+			this.btnGuardar.IconMarginRight = 0;
+			this.btnGuardar.IconRightVisible = true;
+			this.btnGuardar.IconRightZoom = 0D;
+			this.btnGuardar.IconVisible = true;
+			this.btnGuardar.IconZoom = 90D;
+			this.btnGuardar.IsTab = false;
+			this.btnGuardar.Location = new System.Drawing.Point(304, 457);
+			this.btnGuardar.Margin = new System.Windows.Forms.Padding(6);
+			this.btnGuardar.Name = "btnGuardar";
+			this.btnGuardar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnGuardar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+			this.btnGuardar.OnHoverTextColor = System.Drawing.Color.White;
+			this.btnGuardar.selected = false;
+			this.btnGuardar.Size = new System.Drawing.Size(136, 34);
+			this.btnGuardar.TabIndex = 15;
+			this.btnGuardar.Text = "Guardar";
+			this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnGuardar.Textcolor = System.Drawing.Color.White;
+			this.btnGuardar.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
 			// 
-			// bunifuFlatButton4
+			// btnListaPrestamos
 			// 
-			this.bunifuFlatButton4.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-			this.bunifuFlatButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.bunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.bunifuFlatButton4.BorderRadius = 0;
-			this.bunifuFlatButton4.ButtonText = "Lista prestamos";
-			this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
-			this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
-			this.bunifuFlatButton4.Iconimage = global::ControlLaboratorioElectronica.Properties.Resources.lista;
-			this.bunifuFlatButton4.Iconimage_right = null;
-			this.bunifuFlatButton4.Iconimage_right_Selected = null;
-			this.bunifuFlatButton4.Iconimage_Selected = null;
-			this.bunifuFlatButton4.IconMarginLeft = 0;
-			this.bunifuFlatButton4.IconMarginRight = 0;
-			this.bunifuFlatButton4.IconRightVisible = true;
-			this.bunifuFlatButton4.IconRightZoom = 0D;
-			this.bunifuFlatButton4.IconVisible = true;
-			this.bunifuFlatButton4.IconZoom = 90D;
-			this.bunifuFlatButton4.IsTab = false;
-			this.bunifuFlatButton4.Location = new System.Drawing.Point(550, 37);
-			this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.bunifuFlatButton4.Name = "bunifuFlatButton4";
-			this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-			this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
-			this.bunifuFlatButton4.selected = false;
-			this.bunifuFlatButton4.Size = new System.Drawing.Size(202, 37);
-			this.bunifuFlatButton4.TabIndex = 14;
-			this.bunifuFlatButton4.Text = "Lista prestamos";
-			this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.bunifuFlatButton4.Textcolor = System.Drawing.Color.White;
-			this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnListaPrestamos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+			this.btnListaPrestamos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnListaPrestamos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnListaPrestamos.BorderRadius = 0;
+			this.btnListaPrestamos.ButtonText = "Lista prestamos";
+			this.btnListaPrestamos.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnListaPrestamos.DisabledColor = System.Drawing.Color.Gray;
+			this.btnListaPrestamos.Iconcolor = System.Drawing.Color.Transparent;
+			this.btnListaPrestamos.Iconimage = global::ControlLaboratorioElectronica.Properties.Resources.lista;
+			this.btnListaPrestamos.Iconimage_right = null;
+			this.btnListaPrestamos.Iconimage_right_Selected = null;
+			this.btnListaPrestamos.Iconimage_Selected = null;
+			this.btnListaPrestamos.IconMarginLeft = 0;
+			this.btnListaPrestamos.IconMarginRight = 0;
+			this.btnListaPrestamos.IconRightVisible = true;
+			this.btnListaPrestamos.IconRightZoom = 0D;
+			this.btnListaPrestamos.IconVisible = true;
+			this.btnListaPrestamos.IconZoom = 90D;
+			this.btnListaPrestamos.IsTab = false;
+			this.btnListaPrestamos.Location = new System.Drawing.Point(550, 37);
+			this.btnListaPrestamos.Margin = new System.Windows.Forms.Padding(4);
+			this.btnListaPrestamos.Name = "btnListaPrestamos";
+			this.btnListaPrestamos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnListaPrestamos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+			this.btnListaPrestamos.OnHoverTextColor = System.Drawing.Color.White;
+			this.btnListaPrestamos.selected = false;
+			this.btnListaPrestamos.Size = new System.Drawing.Size(202, 37);
+			this.btnListaPrestamos.TabIndex = 14;
+			this.btnListaPrestamos.Text = "Lista prestamos";
+			this.btnListaPrestamos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnListaPrestamos.Textcolor = System.Drawing.Color.White;
+			this.btnListaPrestamos.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			// 
 			// bunifuFlatButton3
 			// 
@@ -312,7 +314,7 @@
 			this.bunifuFlatButton2.IconZoom = 90D;
 			this.bunifuFlatButton2.IsTab = false;
 			this.bunifuFlatButton2.Location = new System.Drawing.Point(410, 624);
-			this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(4);
 			this.bunifuFlatButton2.Name = "bunifuFlatButton2";
 			this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
 			this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
@@ -419,11 +421,11 @@
 		#endregion
 
 		private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txt_nom;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtNombre;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuFlatButton btn_guardar;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txt_carre;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txt_control;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtCarrera;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtNumControl;
 		private System.Windows.Forms.DataGridView dgvMaterial;
 		private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
 		private System.Windows.Forms.GroupBox groupBox1;
@@ -433,7 +435,7 @@
 		private System.Windows.Forms.DataGridViewButtonColumn Quitar;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
-		private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
-		private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
+		private Bunifu.Framework.UI.BunifuFlatButton btnListaPrestamos;
+		private Bunifu.Framework.UI.BunifuFlatButton btnGuardar;
 	}
 }

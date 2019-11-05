@@ -26,5 +26,19 @@ namespace ControlLaboratorioElectronica.Vistas
 		{
 			System.Diagnostics.Process.Start(@"C:\");
 		}
+
+		public void limpiar()
+		{
+			txtGrupo.Text = string.Empty;
+			txtMateria.Text = string.Empty;
+			txtNombre.Text = string.Empty;
+			txtNombre.Focus();
+
+		}
+
+		private void btnGuardar_Click(object sender, EventArgs e)
+		{
+			limpiar();
+		}
 	}
 }
