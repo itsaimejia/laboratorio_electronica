@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ControlLaboratorioElectronica.CRUD;
+using ControlLaboratorioElectronica.Modelos;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,18 +16,43 @@ namespace ControlLaboratorioElectronica.Vistas
 	public partial class extDetalleClase : Form
 	{
 
+		public string CodigoClase { get; set; }
 		public extDetalleClase()
 		{
 			InitializeComponent();
 			
 		}
 
-
+		public extDetalleClase(string codigoClase)
+		{
+			this.CodigoClase = codigoClase;
+		}
 		
 
 		private void extDetalleClase_Load(object sender, EventArgs e)
 		{
-			
+			updateInformacionClase();
+			updateListaAlumnos();
+		}
+		public void updateInformacionClase()
+		{
+			Clase clase = crudClases.ObtenerClase(this.CodigoClase);
+			lblNombreDocente.Text = clase.NombreDocente;
+			lblGrupo.Text = clase.Grupo;
+			lblMateria.Text = clase.Materia;
+		}
+		public void updateListaAlumnos()
+		{
+			ArrayList row;
+
+			List<Alumno> alumnos = crudAlumnos.ObtenerAlumnosxClase(this.CodigoClase);
+			foreach (var alumno in alumnos)
+			{
+				row = new ArrayList();
+				row.Add(alumno.NoControl);
+				row.Add(alumno.Nombre);
+				dgvListaAlumnos.Rows.Add(row.ToArray());
+			}
 		}
 
 		private void bunifuImageButton1_Click(object sender, EventArgs e)
@@ -60,7 +88,9 @@ namespace ControlLaboratorioElectronica.Vistas
 			}
 			else
 			{
-				//Método recargar informacion del data grid view
+				dgvListaAlumnos.Rows.Clear();
+				dgvListaAlumnos.Update();
+				updateListaAlumnos();
 			}
 		}
 

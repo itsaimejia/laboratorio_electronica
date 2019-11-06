@@ -95,6 +95,7 @@
 			this.txtNumControl.Size = new System.Drawing.Size(270, 36);
 			this.txtNumControl.TabIndex = 1;
 			this.txtNumControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtNumControl.OnValueChanged += new System.EventHandler(this.txtNumControl_OnValueChanged);
 			this.txtNumControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumControl_KeyPress);
 			// 
 			// txtCarrera

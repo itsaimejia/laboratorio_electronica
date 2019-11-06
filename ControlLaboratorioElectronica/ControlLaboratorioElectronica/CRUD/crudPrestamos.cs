@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControlLaboratorioElectronica.Modelos
+namespace ControlLaboratorioElectronica.CRUD
 {
-	class Docente
+	class crudPrestamos
 	{
-		
 	}
 }

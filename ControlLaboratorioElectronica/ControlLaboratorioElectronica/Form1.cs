@@ -1,4 +1,5 @@
-﻿using ControlLaboratorioElectronica.Vistas;
+﻿using ControlLaboratorioElectronica.CRUD;
+using ControlLaboratorioElectronica.Vistas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -117,6 +118,10 @@ namespace ControlLaboratorioElectronica
 		private void btnMinimizar_Click(object sender, EventArgs e)
 		{
 			this.WindowState = FormWindowState.Minimized;
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
 		}
 	}
 }

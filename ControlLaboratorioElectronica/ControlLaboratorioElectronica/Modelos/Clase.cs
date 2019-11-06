@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ControlLaboratorioElectronica.Modelos
 {
-	public class Alumno
+	public class Clase
 	{
-		public string NoControl { get; set; }
-		public string Nombre { get; set; }
 		public string CodigoClase { get; set; }
+		public string Grupo { get; set; }
+		public string NoEmpleado { get; set; }
+		public string NombreDocente { get; set; }
+		public string Materia { get; set; }
 
 	}
 }

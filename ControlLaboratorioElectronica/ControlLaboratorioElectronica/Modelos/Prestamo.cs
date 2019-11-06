@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ControlLaboratorioElectronica.Modelos
 {
-	class Prestamo
+	public class Prestamo
 	{
+		public string IdPrestamo { get; set; }
+		public string IdArticulo { get; set; }
+		public string NombreArticulo { get; set; }
+		public int Cantidad { get; set; }
+
 	}
 }

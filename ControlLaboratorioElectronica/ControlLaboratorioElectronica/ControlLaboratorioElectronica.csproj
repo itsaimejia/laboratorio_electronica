@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -66,8 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CRUD\Conexion.cs" />
+    <Compile Include="CRUD\crudAlumnos.cs" />
+    <Compile Include="CRUD\crudClases.cs" />
+    <Compile Include="CRUD\crudPrestamos.cs" />
     <Compile Include="Modelos\Alumno.cs" />
-    <Compile Include="Modelos\Docente.cs" />
+    <Compile Include="Modelos\Clase.cs" />
     <Compile Include="Modelos\Prestamo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -184,6 +188,7 @@
       <DependentUpon>LaboratorioElectronica.mdf</DependentUpon>
     </Content>
     <Content Include="recursos\agregar-carpeta.png" />
+    <None Include="recursos\refresh.png" />
     <None Include="recursos\minimizar.png" />
     <None Include="recursos\clase.png" />
     <None Include="recursos\finalizar.png" />

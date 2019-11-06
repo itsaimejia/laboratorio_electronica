@@ -39,20 +39,30 @@ namespace ControlLaboratorioElectronica.Vistas
 		}
 
 		private void txtNumControl_KeyPress(object sender, KeyPressEventArgs e)
-		{ 
+		{
+			string control = txtNumControl.Text;
 			if ((int)e.KeyChar == (int)Keys.Enter)
 			{
+
 				if (txtNumControl.Text.Equals("1234"))
 				{
+					limpiar();
 					habilitar();
+					txtNumControl.Text = control;
 					txtNombre.Text = "Itsai";
 					txtCarrera.Text = "Sistemas";
 				}
 				else
 				{
+					limpiar();
 					habilitar();
 				}
 			}
+		}
+
+		private void txtNumControl_OnValueChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

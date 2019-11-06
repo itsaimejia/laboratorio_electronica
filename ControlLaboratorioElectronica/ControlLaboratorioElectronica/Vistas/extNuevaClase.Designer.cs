@@ -36,19 +36,22 @@
 			this.txtNombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.txtGrupo = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.txtMateria = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgvAlumnos = new System.Windows.Forms.DataGridView();
 			this.NoControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NombreAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.txtNoEmpleado = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.btnCargarPractica = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.btnGuardar = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+			this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
+			this.label2 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -100,17 +103,17 @@
 			this.txtNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtNombre.ForeColor = System.Drawing.Color.Black;
 			this.txtNombre.HintForeColor = System.Drawing.Color.Black;
-			this.txtNombre.HintText = "Nombre docente (completo)";
+			this.txtNombre.HintText = "Nombre docente (apellidos->nombres)";
 			this.txtNombre.isPassword = false;
 			this.txtNombre.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
 			this.txtNombre.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
 			this.txtNombre.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
 			this.txtNombre.LineThickness = 4;
-			this.txtNombre.Location = new System.Drawing.Point(58, 26);
+			this.txtNombre.Location = new System.Drawing.Point(55, 82);
 			this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
 			this.txtNombre.Name = "txtNombre";
 			this.txtNombre.Size = new System.Drawing.Size(379, 33);
-			this.txtNombre.TabIndex = 1;
+			this.txtNombre.TabIndex = 2;
 			this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// txtGrupo
@@ -125,7 +128,7 @@
 			this.txtGrupo.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
 			this.txtGrupo.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
 			this.txtGrupo.LineThickness = 4;
-			this.txtGrupo.Location = new System.Drawing.Point(67, 79);
+			this.txtGrupo.Location = new System.Drawing.Point(64, 135);
 			this.txtGrupo.Margin = new System.Windows.Forms.Padding(4);
 			this.txtGrupo.Name = "txtGrupo";
 			this.txtGrupo.Size = new System.Drawing.Size(119, 33);
@@ -144,23 +147,23 @@
 			this.txtMateria.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
 			this.txtMateria.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
 			this.txtMateria.LineThickness = 4;
-			this.txtMateria.Location = new System.Drawing.Point(214, 79);
+			this.txtMateria.Location = new System.Drawing.Point(211, 135);
 			this.txtMateria.Margin = new System.Windows.Forms.Padding(4);
 			this.txtMateria.Name = "txtMateria";
 			this.txtMateria.Size = new System.Drawing.Size(223, 33);
 			this.txtMateria.TabIndex = 3;
 			this.txtMateria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// dataGridView1
+			// dgvAlumnos
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NoControl,
             this.NombreAlumno});
-			this.dataGridView1.Location = new System.Drawing.Point(6, 23);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(464, 187);
-			this.dataGridView1.TabIndex = 4;
+			this.dgvAlumnos.Location = new System.Drawing.Point(6, 23);
+			this.dgvAlumnos.Name = "dgvAlumnos";
+			this.dgvAlumnos.Size = new System.Drawing.Size(464, 187);
+			this.dgvAlumnos.TabIndex = 4;
 			// 
 			// NoControl
 			// 
@@ -176,27 +179,48 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.dataGridView1);
+			this.groupBox1.Controls.Add(this.label2);
+			this.groupBox1.Controls.Add(this.dgvAlumnos);
 			this.groupBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox1.Location = new System.Drawing.Point(28, 215);
+			this.groupBox1.Location = new System.Drawing.Point(28, 250);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(482, 216);
+			this.groupBox1.Size = new System.Drawing.Size(482, 235);
 			this.groupBox1.TabIndex = 5;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Lista de alumnos";
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.txtNoEmpleado);
 			this.groupBox2.Controls.Add(this.txtNombre);
 			this.groupBox2.Controls.Add(this.txtMateria);
 			this.groupBox2.Controls.Add(this.txtGrupo);
 			this.groupBox2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox2.Location = new System.Drawing.Point(28, 62);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(482, 147);
+			this.groupBox2.Size = new System.Drawing.Size(482, 182);
 			this.groupBox2.TabIndex = 6;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Información docente";
+			// 
+			// txtNoEmpleado
+			// 
+			this.txtNoEmpleado.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtNoEmpleado.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtNoEmpleado.ForeColor = System.Drawing.Color.Black;
+			this.txtNoEmpleado.HintForeColor = System.Drawing.Color.Black;
+			this.txtNoEmpleado.HintText = "No. Empleado";
+			this.txtNoEmpleado.isPassword = false;
+			this.txtNoEmpleado.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+			this.txtNoEmpleado.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.txtNoEmpleado.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+			this.txtNoEmpleado.LineThickness = 4;
+			this.txtNoEmpleado.Location = new System.Drawing.Point(139, 41);
+			this.txtNoEmpleado.Margin = new System.Windows.Forms.Padding(4);
+			this.txtNoEmpleado.Name = "txtNoEmpleado";
+			this.txtNoEmpleado.Size = new System.Drawing.Size(217, 33);
+			this.txtNoEmpleado.TabIndex = 1;
+			this.txtNoEmpleado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// groupBox3
 			// 
@@ -205,7 +229,7 @@
 			this.groupBox3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox3.Location = new System.Drawing.Point(536, 62);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(250, 369);
+			this.groupBox3.Size = new System.Drawing.Size(250, 404);
 			this.groupBox3.TabIndex = 17;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Practicas";
@@ -219,6 +243,7 @@
 			this.btnCargarPractica.ButtonText = "Cargar practica";
 			this.btnCargarPractica.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnCargarPractica.DisabledColor = System.Drawing.Color.Gray;
+			this.btnCargarPractica.Enabled = false;
 			this.btnCargarPractica.Iconcolor = System.Drawing.Color.Transparent;
 			this.btnCargarPractica.Iconimage = global::ControlLaboratorioElectronica.Properties.Resources.agregar_carpeta;
 			this.btnCargarPractica.Iconimage_right = null;
@@ -231,7 +256,7 @@
 			this.btnCargarPractica.IconVisible = true;
 			this.btnCargarPractica.IconZoom = 90D;
 			this.btnCargarPractica.IsTab = false;
-			this.btnCargarPractica.Location = new System.Drawing.Point(16, 311);
+			this.btnCargarPractica.Location = new System.Drawing.Point(16, 356);
 			this.btnCargarPractica.Margin = new System.Windows.Forms.Padding(9);
 			this.btnCargarPractica.Name = "btnCargarPractica";
 			this.btnCargarPractica.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
@@ -248,11 +273,12 @@
 			// 
 			// listBox1
 			// 
+			this.listBox1.Enabled = false;
 			this.listBox1.FormattingEnabled = true;
 			this.listBox1.ItemHeight = 19;
 			this.listBox1.Location = new System.Drawing.Point(16, 36);
 			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(214, 251);
+			this.listBox1.Size = new System.Drawing.Size(214, 289);
 			this.listBox1.TabIndex = 0;
 			// 
 			// btnGuardar
@@ -276,7 +302,7 @@
 			this.btnGuardar.IconVisible = true;
 			this.btnGuardar.IconZoom = 90D;
 			this.btnGuardar.IsTab = false;
-			this.btnGuardar.Location = new System.Drawing.Point(347, 470);
+			this.btnGuardar.Location = new System.Drawing.Point(349, 494);
 			this.btnGuardar.Margin = new System.Windows.Forms.Padding(6);
 			this.btnGuardar.Name = "btnGuardar";
 			this.btnGuardar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
@@ -298,12 +324,26 @@
 			this.bunifuDragControl1.TargetControl = this.panel1;
 			this.bunifuDragControl1.Vertical = true;
 			// 
+			// ttMensaje
+			// 
+			this.ttMensaje.IsBalloon = true;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(6, 213);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(285, 10);
+			this.label2.TabIndex = 5;
+			this.label2.Text = "*Nota: Presione TAB después de ingresar el ultimo nombre";
+			// 
 			// extNuevaClase
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(823, 516);
+			this.ClientSize = new System.Drawing.Size(823, 532);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.btnGuardar);
 			this.Controls.Add(this.groupBox1);
@@ -315,8 +355,9 @@
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
 			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
 			this.ResumeLayout(false);
@@ -333,7 +374,7 @@
 		private Bunifu.Framework.UI.BunifuMaterialTextbox txtGrupo;
 		private Bunifu.Framework.UI.BunifuMaterialTextbox txtMateria;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dgvAlumnos;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NoControl;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NombreAlumno;
 		private System.Windows.Forms.GroupBox groupBox2;
@@ -342,5 +383,8 @@
 		private System.Windows.Forms.ListBox listBox1;
 		private Bunifu.Framework.UI.BunifuFlatButton btnCargarPractica;
 		private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+		private Bunifu.Framework.UI.BunifuMaterialTextbox txtNoEmpleado;
+		private System.Windows.Forms.ToolTip ttMensaje;
+		private System.Windows.Forms.Label label2;
 	}
 }

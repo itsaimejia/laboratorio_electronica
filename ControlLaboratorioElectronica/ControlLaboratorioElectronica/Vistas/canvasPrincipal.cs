@@ -1,55 +1,42 @@
-﻿using ControlLaboratorioElectronica.Vistas;
+﻿using ControlLaboratorioElectronica.CRUD;
+using ControlLaboratorioElectronica.Modelos;
+using ControlLaboratorioElectronica.Vistas;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ControlLaboratorioElectronica
 {
 	public partial class canvasPrincipal : Form
 	{
+		static List<Clase> clases;
 		public canvasPrincipal()
 		{
 			InitializeComponent();
+			recargaListado();
 		}
 
 		private void canvasPrincipal_Load(object sender, EventArgs e)
 		{
-			update();
+			updateDataClases();
+			this.dgvDocentes.Columns[0].ReadOnly = true;
+			this.dgvDocentes.Columns[1].ReadOnly = true;
+			this.dgvDocentes.Columns[1].ReadOnly = true;
 		}
 
-		public void update()
+		public void updateDataClases()
 		{
-			ArrayList row = new ArrayList();
-			row = new ArrayList();
-			row.Add("4sa");
-			row.Add("Dtsai Zempoatecatl Mejia");
-			row.Add("Electronica");
-			dgvDocentes.Rows.Add(row.ToArray());
+			ArrayList row;
+			foreach (var clase in clases)
+			{
+				row = new ArrayList();
+				row.Add(clase.Grupo);
+				row.Add(clase.NombreDocente);
+				row.Add(clase.Materia);
+				dgvDocentes.Rows.Add(row.ToArray());
+			}
 
-			row = new ArrayList();
-			row.Add("5sa");
-			row.Add("Etsai Zempoatecatl Mejia");
-			row.Add("Matematicas");
-			dgvDocentes.Rows.Add(row.ToArray());
-
-			row = new ArrayList();
-			row.Add("6sa");
-			row.Add("Ttsai Zempoatecatl Mejia");
-			row.Add("Fisica");
-			dgvDocentes.Rows.Add(row.ToArray());
-
-			row = new ArrayList();
-			row.Add("7sa");
-			row.Add("Ptsai Zempoatecatl Mejia");
-			row.Add("Quimica");
-			dgvDocentes.Rows.Add(row.ToArray());
 		}
 
 		private void txtBuscar_OnValueChanged(object sender, EventArgs e)
@@ -75,7 +62,7 @@ namespace ControlLaboratorioElectronica
 			}
 			else
 			{
-				//Método recargar informacion del data grid view
+				RefrescarTabla();
 			}
 		}
 
@@ -85,13 +72,29 @@ namespace ControlLaboratorioElectronica
 			txtBuscar.Focus();
 		}
 
+		public void RefrescarTabla()
+		{
+			dgvDocentes.Rows.Clear();
+			dgvDocentes.Refresh();
+			updateDataClases();
+		}
 
 
 		private void dgvDocentes_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			DataGridViewRow datos = dgvDocentes.Rows[e.RowIndex];
-			extDetalleClase extDetalleClase = new extDetalleClase();
-			extDetalleClase.Show();
+
+			if (dgvDocentes.Columns[e.ColumnIndex].Name.Equals("Detalles"))
+			{
+				DataGridViewRow datos = dgvDocentes.Rows[e.RowIndex];
+				string grupo = datos.Cells["Grupo"].Value.ToString();
+				string nombre = datos.Cells["NombreProfesor"].Value.ToString();
+				string materia = datos.Cells["Materia"].Value.ToString();
+				extDetalleClase extDetalleClase = new extDetalleClase()
+				{
+					CodigoClase = codigoClase(grupo, materia, nombre)
+				};
+				extDetalleClase.Show();
+			}
 		}
 
 		private void btnNuevaClase_Click(object sender, EventArgs e)
@@ -105,6 +108,21 @@ namespace ControlLaboratorioElectronica
 		private void timer1_Tick(object sender, EventArgs e)
 		{
 			lblDate.Text = string.Format($"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToString("h:mm:ss")}");
+		}
+
+		private void bunifuImageButton1_Click_1(object sender, EventArgs e)
+		{
+			recargaListado();
+			RefrescarTabla();
+		}
+
+		private void recargaListado()
+		{
+			clases = crudClases.ObtenerClases();
+		}
+		public string codigoClase(string grupo, string materia, string nombre)
+		{
+			return string.Format($"{grupo}{materia.Substring(0, 3)}{nombre.Substring(0, 2)}");
 		}
 	}
 }

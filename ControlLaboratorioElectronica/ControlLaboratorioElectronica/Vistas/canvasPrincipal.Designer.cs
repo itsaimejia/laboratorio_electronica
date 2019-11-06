@@ -32,16 +32,18 @@
 			this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
 			this.txtBuscar = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+			this.lblDate = new System.Windows.Forms.Label();
 			this.btnNuevaClase = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.btnLimpiar = new Bunifu.Framework.UI.BunifuImageButton();
 			this.dgvDocentes = new System.Windows.Forms.DataGridView();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.Grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NombreProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Detalles = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.lblDate = new System.Windows.Forms.Label();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
 			this.SuspendLayout();
@@ -74,6 +76,7 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.bunifuImageButton1);
 			this.groupBox1.Controls.Add(this.lblDate);
 			this.groupBox1.Controls.Add(this.btnNuevaClase);
 			this.groupBox1.Controls.Add(this.btnLimpiar);
@@ -86,6 +89,31 @@
 			this.groupBox1.TabIndex = 3;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Clases activas";
+			// 
+			// bunifuImageButton1
+			// 
+			this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.bunifuImageButton1.ErrorImage = global::ControlLaboratorioElectronica.Properties.Resources.refresh;
+			this.bunifuImageButton1.Image = global::ControlLaboratorioElectronica.Properties.Resources.refresh;
+			this.bunifuImageButton1.ImageActive = null;
+			this.bunifuImageButton1.Location = new System.Drawing.Point(7, 78);
+			this.bunifuImageButton1.Name = "bunifuImageButton1";
+			this.bunifuImageButton1.Size = new System.Drawing.Size(25, 25);
+			this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.bunifuImageButton1.TabIndex = 9;
+			this.bunifuImageButton1.TabStop = false;
+			this.bunifuImageButton1.Zoom = 10;
+			this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
+			// 
+			// lblDate
+			// 
+			this.lblDate.AutoSize = true;
+			this.lblDate.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblDate.Location = new System.Drawing.Point(615, -3);
+			this.lblDate.Name = "lblDate";
+			this.lblDate.Size = new System.Drawing.Size(91, 15);
+			this.lblDate.TabIndex = 8;
+			this.lblDate.Text = "fecha y hora";
 			// 
 			// btnNuevaClase
 			// 
@@ -115,7 +143,7 @@
 			this.btnNuevaClase.OnHovercolor = System.Drawing.Color.White;
 			this.btnNuevaClase.OnHoverTextColor = System.Drawing.Color.Black;
 			this.btnNuevaClase.selected = false;
-			this.btnNuevaClase.Size = new System.Drawing.Size(222, 77);
+			this.btnNuevaClase.Size = new System.Drawing.Size(222, 76);
 			this.btnNuevaClase.TabIndex = 5;
 			this.btnNuevaClase.Text = "Nueva clase";
 			this.btnNuevaClase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -139,7 +167,6 @@
 			// 
 			// dgvDocentes
 			// 
-			this.dgvDocentes.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
 			this.dgvDocentes.AllowUserToAddRows = false;
 			this.dgvDocentes.AllowUserToDeleteRows = false;
 			this.dgvDocentes.AllowUserToResizeColumns = false;
@@ -153,17 +180,24 @@
             this.Materia,
             this.Detalles});
 			this.dgvDocentes.Location = new System.Drawing.Point(6, 109);
+			this.dgvDocentes.MultiSelect = false;
 			this.dgvDocentes.Name = "dgvDocentes";
 			this.dgvDocentes.ReadOnly = true;
 			this.dgvDocentes.Size = new System.Drawing.Size(795, 385);
 			this.dgvDocentes.TabIndex = 3;
 			this.dgvDocentes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocentes_CellContentClick);
 			// 
+			// timer1
+			// 
+			this.timer1.Enabled = true;
+			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
 			// Grupo
 			// 
 			this.Grupo.HeaderText = "Grupo";
 			this.Grupo.Name = "Grupo";
 			this.Grupo.ReadOnly = true;
+			this.Grupo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			this.Grupo.Width = 150;
 			// 
 			// NombreProfesor
@@ -188,21 +222,6 @@
 			this.Detalles.Text = "Detalles";
 			this.Detalles.UseColumnTextForButtonValue = true;
 			// 
-			// lblDate
-			// 
-			this.lblDate.AutoSize = true;
-			this.lblDate.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblDate.Location = new System.Drawing.Point(615, -3);
-			this.lblDate.Name = "lblDate";
-			this.lblDate.Size = new System.Drawing.Size(91, 15);
-			this.lblDate.TabIndex = 8;
-			this.lblDate.Text = "fecha y hora";
-			// 
-			// timer1
-			// 
-			this.timer1.Enabled = true;
-			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-			// 
 			// canvasPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +235,7 @@
 			this.Load += new System.EventHandler(this.canvasPrincipal_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).EndInit();
 			this.ResumeLayout(false);
@@ -230,11 +250,12 @@
 		private System.Windows.Forms.DataGridView dgvDocentes;
 		private Bunifu.Framework.UI.BunifuImageButton btnLimpiar;
 		private Bunifu.Framework.UI.BunifuFlatButton btnNuevaClase;
+		private System.Windows.Forms.Label lblDate;
+		private System.Windows.Forms.Timer timer1;
+		private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Grupo;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NombreProfesor;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
 		private System.Windows.Forms.DataGridViewButtonColumn Detalles;
-		private System.Windows.Forms.Label lblDate;
-		private System.Windows.Forms.Timer timer1;
 	}
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControlLaboratorioElectronica.CRUD;
+using ControlLaboratorioElectronica.Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,7 @@ namespace ControlLaboratorioElectronica.Vistas
 		public extNuevaClase()
 		{
 			InitializeComponent();
+			
 		}
 
 		private void bunifuImageButton1_Click(object sender, EventArgs e)
@@ -29,16 +32,79 @@ namespace ControlLaboratorioElectronica.Vistas
 
 		public void limpiar()
 		{
+			txtNoEmpleado.Text = string.Empty;
 			txtGrupo.Text = string.Empty;
 			txtMateria.Text = string.Empty;
 			txtNombre.Text = string.Empty;
-			txtNombre.Focus();
+			dgvAlumnos.Rows.Clear();
+			dgvAlumnos.Refresh();
+			txtNoEmpleado.Focus();
 
 		}
 
+
 		private void btnGuardar_Click(object sender, EventArgs e)
 		{
-			limpiar();
+			crudAlumnos crudAlumnos = new crudAlumnos();
+			crudClases crudClases = new crudClases();
+			if (txtNoEmpleado.Text == string.Empty)
+				txtNoEmpleado.Focus();
+			else if (txtNombre.Text == string.Empty)
+				txtNombre.Focus();
+			else if (txtGrupo.Text == string.Empty)
+				txtGrupo.Focus();
+			else if (txtMateria.Text == string.Empty)
+				txtMateria.Focus();
+			else if (dgvAlumnos.Rows.Count < 2)
+			{
+				MessageBox.Show("La lista de alumnos se encuentra vacia");
+				dgvAlumnos.Focus();
+			}
+			else
+			{
+				string cod = codigoClase(txtGrupo.Text, txtMateria.Text, txtNombre.Text);
+				Clase clase = new Clase()
+				{
+					CodigoClase = cod.ToUpper(),
+					NoEmpleado = txtNoEmpleado.Text.ToUpper(),
+					Grupo = txtGrupo.Text.ToUpper(),
+					Materia = txtMateria.Text.ToUpper(),
+					NombreDocente = txtNombre.Text.ToUpper()
+				};
+
+				Alumno alumno;
+
+				bool correcto = crudClases.Alta(clase);
+				if (correcto)
+				{
+					foreach (DataGridViewRow row in dgvAlumnos.Rows)
+					{
+						if (Convert.ToString(row.Cells["NoControl"].Value) != "" && Convert.ToString(row.Cells["NombreAlumno"].Value) != "")
+						{
+							alumno = new Alumno();
+
+							alumno.NoControl = Convert.ToString(row.Cells["NoControl"].Value).ToUpper();
+							alumno.Nombre = Convert.ToString(row.Cells["NombreAlumno"].Value).ToUpper();
+							alumno.CodigoClase = clase.CodigoClase.ToUpper();
+							crudAlumnos.Alta(alumno);
+
+						}
+					}
+					MessageBox.Show("Se agregó la clase");
+					limpiar();
+				}
+				else
+				{
+					MessageBox.Show("No se agregó la clase, revisar");
+				}
+			}
+			
+
+		}
+
+		public string codigoClase(string grupo, string materia, string nombre)
+		{
+			return string.Format($"{grupo}{materia.Substring(0,3)}{nombre.Substring(0,2)}");
 		}
 	}
 }
