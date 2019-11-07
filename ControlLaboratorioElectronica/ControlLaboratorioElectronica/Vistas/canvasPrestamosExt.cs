@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControlLaboratorioElectronica.CRUD;
+using ControlLaboratorioElectronica.Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,26 +48,20 @@ namespace ControlLaboratorioElectronica.Vistas
 			string control = txtNumControl.Text;
 			if ((int)e.KeyChar == (int)Keys.Enter)
 			{
-
-				if (txtNumControl.Text.Equals("1234"))
+				Alumno alumno = crudAlumnos.Consulta(control);
+				if (alumno != null)
 				{
-					limpiar();
+					txtNumControl.Text = alumno.NoControl;
+					txtNombre.Text = alumno.Nombre;
 					habilitar();
-					txtNumControl.Text = control;
-					txtNombre.Text = "Itsai";
-					txtCarrera.Text = "Sistemas";
 				}
 				else
 				{
-					limpiar();
 					habilitar();
 				}
 			}
 		}
 
-		private void txtNumControl_OnValueChanged(object sender, EventArgs e)
-		{
-
-		}
+		
 	}
 }

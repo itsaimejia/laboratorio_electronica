@@ -35,7 +35,7 @@ namespace ControlLaboratorioElectronica.CRUD
 		public static Alumno Consulta(string NoControl)
 		{
 			Alumno alumno = null;
-			string query = $"SELECT * FROM Alumnos WHERE CodigoClase='{NoControl}'";
+			string query = $"SELECT * FROM Alumnos WHERE NoControl='{NoControl}'";
 			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());
 			SqlDataReader reader = cmd.ExecuteReader();
 			while (reader.Read())
@@ -43,8 +43,7 @@ namespace ControlLaboratorioElectronica.CRUD
 				alumno=new Alumno
 				{
 					NoControl = Convert.ToString(reader["NoControl"]),
-					Nombre = Convert.ToString(reader["Nombre"]),
-					CodigoClase = Convert.ToString(reader["CodigoClase"])
+					Nombre = Convert.ToString(reader["Nombre"])
 				};
 			}
 			reader.Close();

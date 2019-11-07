@@ -41,22 +41,22 @@
 			this.Quitar = new System.Windows.Forms.DataGridViewButtonColumn();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.cbClases = new System.Windows.Forms.ComboBox();
+			this.rbEnClase = new System.Windows.Forms.RadioButton();
+			this.rbExterno = new System.Windows.Forms.RadioButton();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.btnGuardar = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.btnListaPrestamos = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.btn_guardar = new Bunifu.Framework.UI.BunifuFlatButton();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.rbExterno = new System.Windows.Forms.RadioButton();
-			this.rbEnClase = new System.Windows.Forms.RadioButton();
-			this.cbClases = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
-			this.groupBox3.SuspendLayout();
 			this.groupBox4.SuspendLayout();
+			this.groupBox3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// bunifuElipse1
@@ -102,7 +102,6 @@
 			this.txtNumControl.Size = new System.Drawing.Size(270, 36);
 			this.txtNumControl.TabIndex = 1;
 			this.txtNumControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.txtNumControl.OnValueChanged += new System.EventHandler(this.txtNumControl_OnValueChanged);
 			this.txtNumControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumControl_KeyPress);
 			// 
 			// txtCarrera
@@ -168,7 +167,7 @@
 			// 
 			this.groupBox1.Controls.Add(this.dgvMaterial);
 			this.groupBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox1.Location = new System.Drawing.Point(18, 225);
+			this.groupBox1.Location = new System.Drawing.Point(66, 223);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(643, 210);
 			this.groupBox1.TabIndex = 9;
@@ -191,6 +190,60 @@
 			this.groupBox2.TabIndex = 11;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Prestamos ";
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Controls.Add(this.cbClases);
+			this.groupBox4.Controls.Add(this.rbEnClase);
+			this.groupBox4.Controls.Add(this.rbExterno);
+			this.groupBox4.Location = new System.Drawing.Point(425, 111);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(236, 87);
+			this.groupBox4.TabIndex = 17;
+			this.groupBox4.TabStop = false;
+			this.groupBox4.Text = "Tipo prestamo";
+			// 
+			// cbClases
+			// 
+			this.cbClases.FormattingEnabled = true;
+			this.cbClases.Location = new System.Drawing.Point(7, 54);
+			this.cbClases.Name = "cbClases";
+			this.cbClases.Size = new System.Drawing.Size(223, 27);
+			this.cbClases.TabIndex = 2;
+			// 
+			// rbEnClase
+			// 
+			this.rbEnClase.AutoSize = true;
+			this.rbEnClase.Location = new System.Drawing.Point(131, 27);
+			this.rbEnClase.Name = "rbEnClase";
+			this.rbEnClase.Size = new System.Drawing.Size(99, 23);
+			this.rbEnClase.TabIndex = 1;
+			this.rbEnClase.TabStop = true;
+			this.rbEnClase.Text = "En clase";
+			this.rbEnClase.UseVisualStyleBackColor = true;
+			// 
+			// rbExterno
+			// 
+			this.rbExterno.AutoSize = true;
+			this.rbExterno.Location = new System.Drawing.Point(7, 27);
+			this.rbExterno.Name = "rbExterno";
+			this.rbExterno.Size = new System.Drawing.Size(90, 23);
+			this.rbExterno.TabIndex = 0;
+			this.rbExterno.TabStop = true;
+			this.rbExterno.Text = "Externo";
+			this.rbExterno.UseVisualStyleBackColor = true;
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Controls.Add(this.txtNumControl);
+			this.groupBox3.Controls.Add(this.txtNombre);
+			this.groupBox3.Controls.Add(this.txtCarrera);
+			this.groupBox3.Location = new System.Drawing.Point(110, 25);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(309, 173);
+			this.groupBox3.TabIndex = 16;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "Información alumno";
 			// 
 			// btnGuardar
 			// 
@@ -250,14 +303,14 @@
 			this.btnListaPrestamos.IconVisible = true;
 			this.btnListaPrestamos.IconZoom = 90D;
 			this.btnListaPrestamos.IsTab = false;
-			this.btnListaPrestamos.Location = new System.Drawing.Point(594, 37);
+			this.btnListaPrestamos.Location = new System.Drawing.Point(432, 26);
 			this.btnListaPrestamos.Margin = new System.Windows.Forms.Padding(4);
 			this.btnListaPrestamos.Name = "btnListaPrestamos";
 			this.btnListaPrestamos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
 			this.btnListaPrestamos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
 			this.btnListaPrestamos.OnHoverTextColor = System.Drawing.Color.White;
 			this.btnListaPrestamos.selected = false;
-			this.btnListaPrestamos.Size = new System.Drawing.Size(140, 64);
+			this.btnListaPrestamos.Size = new System.Drawing.Size(186, 64);
 			this.btnListaPrestamos.TabIndex = 14;
 			this.btnListaPrestamos.Text = "Lista prestamos";
 			this.btnListaPrestamos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -406,60 +459,6 @@
 			this.btn_guardar.Textcolor = System.Drawing.Color.White;
 			this.btn_guardar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			// 
-			// groupBox3
-			// 
-			this.groupBox3.Controls.Add(this.txtNumControl);
-			this.groupBox3.Controls.Add(this.txtNombre);
-			this.groupBox3.Controls.Add(this.txtCarrera);
-			this.groupBox3.Location = new System.Drawing.Point(18, 26);
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(309, 173);
-			this.groupBox3.TabIndex = 16;
-			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "Información alumno";
-			// 
-			// groupBox4
-			// 
-			this.groupBox4.Controls.Add(this.cbClases);
-			this.groupBox4.Controls.Add(this.rbEnClase);
-			this.groupBox4.Controls.Add(this.rbExterno);
-			this.groupBox4.Location = new System.Drawing.Point(333, 56);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(236, 118);
-			this.groupBox4.TabIndex = 17;
-			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "Tipo prestamo";
-			// 
-			// rbExterno
-			// 
-			this.rbExterno.AutoSize = true;
-			this.rbExterno.Location = new System.Drawing.Point(7, 27);
-			this.rbExterno.Name = "rbExterno";
-			this.rbExterno.Size = new System.Drawing.Size(90, 23);
-			this.rbExterno.TabIndex = 0;
-			this.rbExterno.TabStop = true;
-			this.rbExterno.Text = "Externo";
-			this.rbExterno.UseVisualStyleBackColor = true;
-			// 
-			// rbEnClase
-			// 
-			this.rbEnClase.AutoSize = true;
-			this.rbEnClase.Location = new System.Drawing.Point(131, 25);
-			this.rbEnClase.Name = "rbEnClase";
-			this.rbEnClase.Size = new System.Drawing.Size(99, 23);
-			this.rbEnClase.TabIndex = 1;
-			this.rbEnClase.TabStop = true;
-			this.rbEnClase.Text = "En clase";
-			this.rbEnClase.UseVisualStyleBackColor = true;
-			// 
-			// cbClases
-			// 
-			this.cbClases.FormattingEnabled = true;
-			this.cbClases.Location = new System.Drawing.Point(15, 71);
-			this.cbClases.Name = "cbClases";
-			this.cbClases.Size = new System.Drawing.Size(204, 27);
-			this.cbClases.TabIndex = 2;
-			// 
 			// canvasPrestamosExt
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,9 +474,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
-			this.groupBox3.ResumeLayout(false);
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
+			this.groupBox3.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -502,9 +501,9 @@
 		private Bunifu.Framework.UI.BunifuFlatButton btnListaPrestamos;
 		private Bunifu.Framework.UI.BunifuFlatButton btnGuardar;
 		private System.Windows.Forms.GroupBox groupBox4;
-		private System.Windows.Forms.ComboBox cbClases;
 		private System.Windows.Forms.RadioButton rbEnClase;
 		private System.Windows.Forms.RadioButton rbExterno;
 		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.ComboBox cbClases;
 	}
 }
