@@ -13,29 +13,56 @@ namespace ControlLaboratorioElectronica.CRUD
 	{
 		private static Conexion con = new Conexion();
 		
-		private SqlCommand cmd;
+		private static SqlCommand cmd;
 		public void Alta(Alumno alumno)
 		{
-			string script = string.Format($"insert into Alumnos values(" +
-				$"'{alumno.NoControl}','{alumno.Nombre}','{alumno.CodigoClase}')");
-			cmd = new SqlCommand(script, con.AbrirConexion());
-			cmd.ExecuteNonQuery();
-			con.CerrarConexion();
+			if (!Existe(alumno.NoControl))
+			{
+				string script = string.Format($"INSERT INTO Alumnos values(" +
+				$"'{alumno.NoControl}','{alumno.Nombre}')");
+				
+				cmd = new SqlCommand(script, con.AbrirConexion());
+				cmd.ExecuteNonQuery();
+				con.CerrarConexion();
+				AlumnoClase(alumno.NoControl, alumno.CodigoClase);
+			}
+			else
+			{
+				AlumnoClase(alumno.NoControl, alumno.CodigoClase);
+			}
+		}
+
+		public static Alumno Consulta(string NoControl)
+		{
+			Alumno alumno = null;
+			string query = $"SELECT * FROM Alumnos WHERE CodigoClase='{NoControl}'";
+			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());
+			SqlDataReader reader = cmd.ExecuteReader();
+			while (reader.Read())
+			{
+				alumno=new Alumno
+				{
+					NoControl = Convert.ToString(reader["NoControl"]),
+					Nombre = Convert.ToString(reader["Nombre"]),
+					CodigoClase = Convert.ToString(reader["CodigoClase"])
+				};
+			}
+			reader.Close();
+			return alumno;
 		}
 
 		public static List<Alumno> ObtenerAlumnos()
 		{
 			List<Alumno> lista = new List<Alumno>();
-			string query = @"SELECT NoControl, Nombre, CodigoClase FROM Alumnos";
-			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());
+			string query = @"SELECT NoControl, Nombre FROM Alumnos";
+			cmd = new SqlCommand(query, con.AbrirConexion());
 			SqlDataReader reader = cmd.ExecuteReader();
 			while (reader.Read())
 			{
 				lista.Add(new Alumno
 				{
 					NoControl = Convert.ToString(reader["NoControl"]),
-					Nombre = Convert.ToString(reader["Nombre"]),
-					CodigoClase = Convert.ToString(reader["CodigoClase"])
+					Nombre = Convert.ToString(reader["Nombre"])
 				});
 			}
 			reader.Close();
@@ -44,14 +71,49 @@ namespace ControlLaboratorioElectronica.CRUD
 
 		public static List<Alumno> ObtenerAlumnosxClase(string codigoClase)
 		{
-			List<Alumno> grupo = ObtenerAlumnos();
 			List<Alumno> extraer = new List<Alumno>();
-			foreach(var item in grupo)
+			string query = $"SELECT Alumnos.NoControl, Alumnos.Nombre, AlumnoClase.CodigoClase " +
+				$"FROM AlumnoClase " +
+				$"INNER JOIN Alumnos ON AlumnoClase.NoControl = Alumnos.NoControl " +
+				$"WHERE AlumnoClase.CodigoClase = '{codigoClase}'";
+			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());
+			SqlDataReader reader = cmd.ExecuteReader();
+			while (reader.Read())
 			{
-				if (item.CodigoClase.Equals(codigoClase))
-					extraer.Add(item);
+				extraer.Add(new Alumno
+				{
+					NoControl = Convert.ToString(reader["NoControl"]),
+					Nombre = Convert.ToString(reader["Nombre"]),
+					CodigoClase = Convert.ToString(reader["CodigoClase"])
+				});
 			}
+			reader.Close();
 			return extraer;
+		}
+
+		public static void Asistencia(string Fecha, string NoControl, int Asistencia)
+		{
+			string script = string.Format($"INSERT INTO Asistencias VALUES(" +
+				$"'{Fecha}','{NoControl}','{Asistencia}')");
+			cmd = new SqlCommand(script, con.AbrirConexion());
+			cmd.ExecuteNonQuery();
+			con.CerrarConexion();
+		}
+		public void AlumnoClase(string NoControl, string CodigoClase)
+		{
+			string script = string.Format($"INSERT INTO AlumnoClase values(" +
+				$"'{NoControl}','{CodigoClase}')");
+			cmd = new SqlCommand(script, con.AbrirConexion());
+			cmd.ExecuteNonQuery();
+			con.CerrarConexion();
+		}
+		public static bool Existe(string NoControl)
+		{
+			string query = $"SELECT COUNT(*) FROM Alumnos WHERE NoControl={NoControl}";
+			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());
+			cmd.Parameters.AddWithValue("NoControl", NoControl);
+			int count = Convert.ToInt32(cmd.ExecuteScalar());
+			return (count == 0) ? false : true;
 		}
 	}
 }

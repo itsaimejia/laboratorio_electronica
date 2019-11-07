@@ -36,6 +36,9 @@ namespace ControlLaboratorioElectronica.Vistas
 			txtCarrera.Enabled = true;
 			dgvMaterial.Enabled = true;
 			btnGuardar.Enabled = true;
+			rbEnClase.Enabled = true;
+			rbExterno.Enabled = true;
+			cbClases.Enabled = true;
 		}
 
 		private void txtNumControl_KeyPress(object sender, KeyPressEventArgs e)

@@ -40,10 +40,9 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.lblDate = new System.Windows.Forms.Label();
 			this.dgvListaAlumnos = new System.Windows.Forms.DataGridView();
-			this.NumeroControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.NoControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NombreAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Asistencia = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.Prestamo = new System.Windows.Forms.DataGridViewButtonColumn();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -55,9 +54,9 @@
 			this.txtNumPractica = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.txtAula = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.txtBuscarNum = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-			this.btnFinClase = new Bunifu.Framework.UI.BunifuFlatButton();
+			this.btnPaseLista = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.btnFinClase = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -89,7 +88,7 @@
 			this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
 			this.btnMinimizar.Image = global::ControlLaboratorioElectronica.Properties.Resources.minimizar;
 			this.btnMinimizar.ImageActive = null;
-			this.btnMinimizar.Location = new System.Drawing.Point(680, 8);
+			this.btnMinimizar.Location = new System.Drawing.Point(576, 8);
 			this.btnMinimizar.Name = "btnMinimizar";
 			this.btnMinimizar.Size = new System.Drawing.Size(25, 23);
 			this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -103,7 +102,7 @@
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label5.ForeColor = System.Drawing.Color.White;
-			this.label5.Location = new System.Drawing.Point(257, 9);
+			this.label5.Location = new System.Drawing.Point(197, 9);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(210, 22);
 			this.label5.TabIndex = 3;
@@ -114,7 +113,7 @@
 			this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
 			this.bunifuImageButton1.Image = global::ControlLaboratorioElectronica.Properties.Resources.exit;
 			this.bunifuImageButton1.ImageActive = null;
-			this.bunifuImageButton1.Location = new System.Drawing.Point(711, 8);
+			this.bunifuImageButton1.Location = new System.Drawing.Point(607, 8);
 			this.bunifuImageButton1.Name = "bunifuImageButton1";
 			this.bunifuImageButton1.Size = new System.Drawing.Size(25, 23);
 			this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -160,7 +159,7 @@
 			// lblDate
 			// 
 			this.lblDate.AutoSize = true;
-			this.lblDate.Location = new System.Drawing.Point(593, 55);
+			this.lblDate.Location = new System.Drawing.Point(506, 53);
 			this.lblDate.Name = "lblDate";
 			this.lblDate.Size = new System.Drawing.Size(66, 13);
 			this.lblDate.TabIndex = 7;
@@ -173,26 +172,29 @@
 			this.dgvListaAlumnos.BackgroundColor = System.Drawing.Color.White;
 			this.dgvListaAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvListaAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NumeroControl,
+            this.NoControl,
             this.NombreAlumno,
-            this.Asistencia,
-            this.Prestamo});
+            this.Asistencia});
 			this.dgvListaAlumnos.GridColor = System.Drawing.Color.White;
-			this.dgvListaAlumnos.Location = new System.Drawing.Point(16, 63);
+			this.dgvListaAlumnos.Location = new System.Drawing.Point(6, 25);
 			this.dgvListaAlumnos.Name = "dgvListaAlumnos";
-			this.dgvListaAlumnos.Size = new System.Drawing.Size(684, 150);
+			this.dgvListaAlumnos.Size = new System.Drawing.Size(588, 169);
 			this.dgvListaAlumnos.TabIndex = 11;
 			// 
-			// NumeroControl
+			// NoControl
 			// 
-			this.NumeroControl.HeaderText = "Num. Control";
-			this.NumeroControl.Name = "NumeroControl";
-			this.NumeroControl.Width = 140;
+			this.NoControl.HeaderText = "Num. Control";
+			this.NoControl.Name = "NoControl";
+			this.NoControl.ReadOnly = true;
+			this.NoControl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.NoControl.Width = 140;
 			// 
 			// NombreAlumno
 			// 
 			this.NombreAlumno.HeaderText = "Nombre del alumno";
 			this.NombreAlumno.Name = "NombreAlumno";
+			this.NombreAlumno.ReadOnly = true;
+			this.NombreAlumno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			this.NombreAlumno.Width = 300;
 			// 
 			// Asistencia
@@ -200,16 +202,11 @@
 			this.Asistencia.HeaderText = "Asistencia";
 			this.Asistencia.Name = "Asistencia";
 			// 
-			// Prestamo
-			// 
-			this.Prestamo.HeaderText = "Prestamo";
-			this.Prestamo.Name = "Prestamo";
-			// 
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.listBox1);
 			this.groupBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox1.Location = new System.Drawing.Point(439, 80);
+			this.groupBox1.Location = new System.Drawing.Point(408, 80);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(220, 276);
 			this.groupBox1.TabIndex = 12;
@@ -234,7 +231,7 @@
 			this.groupBox2.Controls.Add(this.label2);
 			this.groupBox2.Controls.Add(this.label3);
 			this.groupBox2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox2.Location = new System.Drawing.Point(75, 80);
+			this.groupBox2.Location = new System.Drawing.Point(15, 80);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(357, 125);
 			this.groupBox2.TabIndex = 13;
@@ -274,7 +271,7 @@
 			this.groupBox3.Controls.Add(this.txtNumPractica);
 			this.groupBox3.Controls.Add(this.txtAula);
 			this.groupBox3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox3.Location = new System.Drawing.Point(75, 222);
+			this.groupBox3.Location = new System.Drawing.Point(15, 222);
 			this.groupBox3.Name = "groupBox3";
 			this.groupBox3.Size = new System.Drawing.Size(357, 134);
 			this.groupBox3.TabIndex = 14;
@@ -343,36 +340,56 @@
 			// 
 			// groupBox4
 			// 
-			this.groupBox4.Controls.Add(this.txtBuscarNum);
+			this.groupBox4.Controls.Add(this.btnPaseLista);
 			this.groupBox4.Controls.Add(this.dgvListaAlumnos);
 			this.groupBox4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox4.Location = new System.Drawing.Point(15, 362);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(706, 224);
+			this.groupBox4.Size = new System.Drawing.Size(613, 224);
 			this.groupBox4.TabIndex = 15;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Lista Alumnos";
 			// 
-			// txtBuscarNum
+			// btnPaseLista
 			// 
-			this.txtBuscarNum.BackColor = System.Drawing.Color.White;
-			this.txtBuscarNum.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txtBuscarNum.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtBuscarNum.ForeColor = System.Drawing.Color.Black;
-			this.txtBuscarNum.HintForeColor = System.Drawing.Color.Black;
-			this.txtBuscarNum.HintText = "No Control";
-			this.txtBuscarNum.isPassword = false;
-			this.txtBuscarNum.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-			this.txtBuscarNum.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.txtBuscarNum.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-			this.txtBuscarNum.LineThickness = 4;
-			this.txtBuscarNum.Location = new System.Drawing.Point(16, 20);
-			this.txtBuscarNum.Margin = new System.Windows.Forms.Padding(4);
-			this.txtBuscarNum.Name = "txtBuscarNum";
-			this.txtBuscarNum.Size = new System.Drawing.Size(144, 36);
-			this.txtBuscarNum.TabIndex = 14;
-			this.txtBuscarNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.txtBuscarNum.OnValueChanged += new System.EventHandler(this.txtBuscarNum_OnValueChanged);
+			this.btnPaseLista.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+			this.btnPaseLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnPaseLista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnPaseLista.BorderRadius = 0;
+			this.btnPaseLista.ButtonText = "Guardar lista";
+			this.btnPaseLista.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnPaseLista.DisabledColor = System.Drawing.Color.Gray;
+			this.btnPaseLista.Iconcolor = System.Drawing.Color.Transparent;
+			this.btnPaseLista.Iconimage = global::ControlLaboratorioElectronica.Properties.Resources.guardar;
+			this.btnPaseLista.Iconimage_right = null;
+			this.btnPaseLista.Iconimage_right_Selected = null;
+			this.btnPaseLista.Iconimage_Selected = null;
+			this.btnPaseLista.IconMarginLeft = 0;
+			this.btnPaseLista.IconMarginRight = 0;
+			this.btnPaseLista.IconRightVisible = true;
+			this.btnPaseLista.IconRightZoom = 0D;
+			this.btnPaseLista.IconVisible = true;
+			this.btnPaseLista.IconZoom = 90D;
+			this.btnPaseLista.IsTab = false;
+			this.btnPaseLista.Location = new System.Drawing.Point(6, 203);
+			this.btnPaseLista.Margin = new System.Windows.Forms.Padding(9);
+			this.btnPaseLista.Name = "btnPaseLista";
+			this.btnPaseLista.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnPaseLista.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+			this.btnPaseLista.OnHoverTextColor = System.Drawing.Color.White;
+			this.btnPaseLista.selected = false;
+			this.btnPaseLista.Size = new System.Drawing.Size(170, 21);
+			this.btnPaseLista.TabIndex = 18;
+			this.btnPaseLista.Text = "Guardar lista";
+			this.btnPaseLista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnPaseLista.Textcolor = System.Drawing.Color.White;
+			this.btnPaseLista.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnPaseLista.Click += new System.EventHandler(this.btnPaseLista_Click);
+			// 
+			// timer1
+			// 
+			this.timer1.Enabled = true;
+			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
 			// btnFinClase
 			// 
@@ -395,7 +412,7 @@
 			this.btnFinClase.IconVisible = true;
 			this.btnFinClase.IconZoom = 90D;
 			this.btnFinClase.IsTab = false;
-			this.btnFinClase.Location = new System.Drawing.Point(275, 608);
+			this.btnFinClase.Location = new System.Drawing.Point(229, 608);
 			this.btnFinClase.Margin = new System.Windows.Forms.Padding(6);
 			this.btnFinClase.Name = "btnFinClase";
 			this.btnFinClase.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
@@ -408,18 +425,14 @@
 			this.btnFinClase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnFinClase.Textcolor = System.Drawing.Color.White;
 			this.btnFinClase.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			// 
-			// timer1
-			// 
-			this.timer1.Enabled = true;
-			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			this.btnFinClase.Click += new System.EventHandler(this.btnFinClase_Click);
 			// 
 			// extDetalleClase
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(733, 656);
+			this.ClientSize = new System.Drawing.Size(640, 656);
 			this.Controls.Add(this.btnFinClase);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox3);
@@ -469,14 +482,13 @@
 		private Bunifu.Framework.UI.BunifuMaterialTextbox txtNumPractica;
 		private Bunifu.Framework.UI.BunifuMaterialTextbox txtAula;
 		private System.Windows.Forms.GroupBox groupBox4;
-		private Bunifu.Framework.UI.BunifuMaterialTextbox txtBuscarNum;
-		private System.Windows.Forms.DataGridViewTextBoxColumn NumeroControl;
-		private System.Windows.Forms.DataGridViewTextBoxColumn NombreAlumno;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn Asistencia;
-		private System.Windows.Forms.DataGridViewButtonColumn Prestamo;
 		private Bunifu.Framework.UI.BunifuFlatButton btnFinClase;
 		private System.Windows.Forms.Label label5;
 		private Bunifu.Framework.UI.BunifuImageButton btnMinimizar;
 		private System.Windows.Forms.Timer timer1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn NoControl;
+		private System.Windows.Forms.DataGridViewTextBoxColumn NombreAlumno;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn Asistencia;
+		private Bunifu.Framework.UI.BunifuFlatButton btnPaseLista;
 	}
 }

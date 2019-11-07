@@ -12,9 +12,7 @@ namespace ControlLaboratorioElectronica.CRUD
 	public class crudClases
 	{
 		private static Conexion con = new Conexion();
-		
-		private DataSet ds;
-		private SqlCommand cmd;
+		private static SqlCommand cmd;
 		public bool Alta(Clase clase)
 		{
 			string query = string.Format($"INSERT INTO Clases VALUES(" +
@@ -48,17 +46,33 @@ namespace ControlLaboratorioElectronica.CRUD
 
 		public static Clase ObtenerClase(string CodigoClase)
 		{
-			List<Clase> listaClases = ObtenerClases();
 			Clase clase = null;
-			foreach(var item in listaClases)
+			string query = $"SELECT * FROM Clases WHERE CodigoClase='{CodigoClase}'";
+			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());
+			SqlDataReader reader = cmd.ExecuteReader();
+			while (reader.Read())
 			{
-				if (item.CodigoClase.Equals(CodigoClase))
+				clase = new Clase()
 				{
-					clase = item;
-					break;
-				}
+					CodigoClase = Convert.ToString(reader["CodigoClase"]),
+					NoEmpleado = Convert.ToString(reader["NoEmpleado"]),
+					Grupo = Convert.ToString(reader["Grupo"]),
+					Materia = Convert.ToString(reader["Materia"]),
+					NombreDocente = Convert.ToString(reader["NombreDocente"])
+				};
 			}
+			reader.Close();
 			return clase;
+		}
+
+		public static bool GuardarClaseConcluida(ClaseConcluida clase)
+		{
+			string query = string.Format($"INSERT INTO ClasesConcluidas VALUES(" +
+				$"'{clase.Fecha}', '{clase.HoraEntrada}','{clase.HoraSalida}','{clase.CodigoClase}','{clase.Aula}','{clase.NoPractica}','{clase.NombrePractica}')");
+			cmd = new SqlCommand(query, con.AbrirConexion());
+			int filasAfectadas = cmd.ExecuteNonQuery();
+			con.CerrarConexion();
+			return (filasAfectadas > 0) ? true : false;
 		}
 	}
 }

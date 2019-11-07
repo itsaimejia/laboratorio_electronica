@@ -17,6 +17,7 @@ namespace ControlLaboratorioElectronica.Vistas
 	{
 
 		public string CodigoClase { get; set; }
+		public string HoraEntrada { get; set; }
 		public extDetalleClase()
 		{
 			InitializeComponent();
@@ -65,38 +66,79 @@ namespace ControlLaboratorioElectronica.Vistas
 			this.WindowState = FormWindowState.Minimized;
 		}
 
-		private void txtBuscarNum_OnValueChanged(object sender, EventArgs e)
-		{
-			if (txtBuscarNum.Text != "")
-			{
-				dgvListaAlumnos.CurrentCell = null;
-				foreach (DataGridViewRow r in dgvListaAlumnos.Rows)
-				{
-					r.Visible = false;
-				}
-				foreach (DataGridViewRow r in dgvListaAlumnos.Rows)
-				{
-					foreach (DataGridViewCell c in r.Cells)
-					{
-						if (c.Value.ToString().ToUpper().IndexOf(txtBuscarNum.Text.ToUpper()) == 0)
-						{
-							r.Visible = true;
-							break;
-						}
-					}
-				}
-			}
-			else
-			{
-				dgvListaAlumnos.Rows.Clear();
-				dgvListaAlumnos.Update();
-				updateListaAlumnos();
-			}
-		}
+		
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
 			lblDate.Text = string.Format($"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToString("h:mm:ss")}");
 		}
+
+		private void btnFinClase_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (txtAula.Text == string.Empty)
+					txtAula.Focus();
+				else if (txtNumPractica.Text == string.Empty)
+					txtNumPractica.Focus();
+				else if (txtNombrePractica.Text == string.Empty)
+					txtNombrePractica.Focus();
+				else if (dgvListaAlumnos.Enabled == true)
+				{
+					MessageBox.Show("Aun no has guardado el pase de lista");
+					dgvListaAlumnos.Focus();
+				}
+				else
+				{
+					DialogResult result = MessageBox.Show("Continuar con el fin de la clase", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+					if (result == DialogResult.Yes)
+					{
+						bool correcto = crudClases.GuardarClaseConcluida(new ClaseConcluida
+						{
+							Fecha = DateTime.Now.ToShortDateString(),
+							HoraEntrada = this.HoraEntrada,
+							HoraSalida = DateTime.Now.ToString("h:mm:ss"),
+							CodigoClase = this.CodigoClase,
+							Aula = txtAula.Text,
+							NoPractica = txtNumPractica.Text,
+							NombrePractica = txtNombrePractica.Text
+						});
+
+						if (correcto)
+						{
+							MessageBox.Show("Clase guardada\nYa puedes cerrar el formulario","Clase finalizada",MessageBoxButtons.OK,MessageBoxIcon.Information);
+							txtAula.Enabled = false;
+							txtNombrePractica.Enabled = false;
+							txtNumPractica.Enabled = false;
+						}
+					}
+					
+				}
+			}catch(Exception ex)
+			{
+
+			}
+		}
+
+		private void btnPaseLista_Click(object sender, EventArgs e)
+		{
+			DialogResult result = MessageBox.Show("¿El pase de lista es correcto?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+			if (result == DialogResult.Yes)
+			{
+				foreach (DataGridViewRow row in dgvListaAlumnos.Rows)
+				{
+					string fecha = DateTime.Now.ToShortDateString();
+					string noControl = Convert.ToString(row.Cells["NoControl"].Value).ToUpper();
+					int asistencia = (Convert.ToBoolean(row.Cells["Asistencia"].Value) == true) ? 1 : 0;
+					crudAlumnos.Asistencia(fecha, noControl, asistencia);
+				}
+				dgvListaAlumnos.Rows.Clear();
+				dgvListaAlumnos.Refresh();
+				dgvListaAlumnos.Enabled = false;
+				btnPaseLista.Enabled = false;
+			}
+		}
+
+
 	}
 }

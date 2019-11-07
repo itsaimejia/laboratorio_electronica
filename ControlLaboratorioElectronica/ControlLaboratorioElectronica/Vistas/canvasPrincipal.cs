@@ -91,7 +91,8 @@ namespace ControlLaboratorioElectronica
 				string materia = datos.Cells["Materia"].Value.ToString();
 				extDetalleClase extDetalleClase = new extDetalleClase()
 				{
-					CodigoClase = codigoClase(grupo, materia, nombre)
+					CodigoClase = codigoClase(grupo, materia, nombre),
+					HoraEntrada = DateTime.Now.ToString("h:mm:ss")
 				};
 				extDetalleClase.Show();
 			}

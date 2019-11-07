@@ -205,6 +205,7 @@
 			this.NombreProfesor.HeaderText = "Nombre profesor";
 			this.NombreProfesor.Name = "NombreProfesor";
 			this.NombreProfesor.ReadOnly = true;
+			this.NombreProfesor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			this.NombreProfesor.Width = 300;
 			// 
 			// Materia
@@ -212,6 +213,7 @@
 			this.Materia.HeaderText = "Materia";
 			this.Materia.Name = "Materia";
 			this.Materia.ReadOnly = true;
+			this.Materia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			this.Materia.Width = 200;
 			// 
 			// Detalles
