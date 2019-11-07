@@ -443,7 +443,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "extDetalleClase";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "extDetalleClase";
+			this.Text = "Detalles de la clase";
 			this.Load += new System.EventHandler(this.extDetalleClase_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

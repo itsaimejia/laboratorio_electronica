@@ -40,6 +40,7 @@
 			this.NoControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NombreAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label2 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.txtNoEmpleado = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -48,7 +49,6 @@
 			this.btnGuardar = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
 			this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
-			this.label2 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
@@ -189,6 +189,16 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Lista de alumnos";
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(6, 213);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(285, 10);
+			this.label2.TabIndex = 5;
+			this.label2.Text = "*Nota: Presione TAB después de ingresar el ultimo nombre";
+			// 
 			// groupBox2
 			// 
 			this.groupBox2.Controls.Add(this.txtNoEmpleado);
@@ -328,16 +338,6 @@
 			// 
 			this.ttMensaje.IsBalloon = true;
 			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(6, 213);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(285, 10);
-			this.label2.TabIndex = 5;
-			this.label2.Text = "*Nota: Presione TAB después de ingresar el ultimo nombre";
-			// 
 			// extNuevaClase
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,6 +352,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "extNuevaClase";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Nueva clase";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();

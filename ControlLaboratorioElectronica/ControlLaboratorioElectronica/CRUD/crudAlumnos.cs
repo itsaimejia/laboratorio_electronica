@@ -99,7 +99,7 @@ namespace ControlLaboratorioElectronica.CRUD
 			cmd.ExecuteNonQuery();
 			con.CerrarConexion();
 		}
-		public void AlumnoClase(string NoControl, string CodigoClase)
+		private void AlumnoClase(string NoControl, string CodigoClase)
 		{
 			string script = string.Format($"INSERT INTO AlumnoClase values(" +
 				$"'{NoControl}','{CodigoClase}')");
@@ -107,7 +107,7 @@ namespace ControlLaboratorioElectronica.CRUD
 			cmd.ExecuteNonQuery();
 			con.CerrarConexion();
 		}
-		public static bool Existe(string NoControl)
+		private static bool Existe(string NoControl)
 		{
 			string query = $"SELECT COUNT(*) FROM Alumnos WHERE NoControl={NoControl}";
 			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());

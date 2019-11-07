@@ -13,8 +13,7 @@ namespace ControlLaboratorioElectronica.CRUD
 	class Conexion
 	{
 
-		static private string cadena = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\itsai\\Source\\Repos\\itsaimejia\\laboratorio_electronica\\ControlLaboratorioElectronica\\ControlLaboratorioElectronica\\LaboratorioElectronica.mdf;Integrated Security=True";
-		private SqlConnection con = new SqlConnection(cadena);
+		private SqlConnection con = new SqlConnection(Properties.Settings.Default.Conectar);
 
 		public SqlConnection AbrirConexion()
 		{
