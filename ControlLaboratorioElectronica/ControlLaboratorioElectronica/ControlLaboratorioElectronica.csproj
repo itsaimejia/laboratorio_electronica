@@ -13,7 +13,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\itsai\Desktop\Instalador\</PublishUrl>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\itsai\Desktop\Installer\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +24,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>5</ApplicationRevision>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -63,9 +65,17 @@
   <PropertyGroup>
     <ApplicationIcon>iconochido.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>ControlLaboratorioElectronica.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\..\..\Documents\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -86,7 +96,9 @@
     <Compile Include="CRUD\crudAlumnos.cs" />
     <Compile Include="CRUD\crudClases.cs" />
     <Compile Include="CRUD\crudPrestamos.cs" />
+    <Compile Include="Lector PDF\PaseLista.cs" />
     <Compile Include="Modelos\Alumno.cs" />
+    <Compile Include="Modelos\AlmAsistencia.cs" />
     <Compile Include="Modelos\Clase.cs" />
     <Compile Include="Modelos\ClaseConcluida.cs" />
     <Compile Include="Modelos\Prestamo.cs" />
@@ -127,6 +139,18 @@
     <Compile Include="Vistas\extDetalleClase.Designer.cs">
       <DependentUpon>extDetalleClase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lector PDF\extLectorPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lector PDF\extLectorPDF.Designer.cs">
+      <DependentUpon>extLectorPDF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\extModificaClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\extModificaClase.Designer.cs">
+      <DependentUpon>extModificaClase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\extNuevaClase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,10 +177,17 @@
     <EmbeddedResource Include="Vistas\extDetalleClase.resx">
       <DependentUpon>extDetalleClase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lector PDF\extLectorPDF.resx">
+      <DependentUpon>extLectorPDF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\extModificaClase.resx">
+      <DependentUpon>extModificaClase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\extNuevaClase.resx">
       <DependentUpon>extNuevaClase.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ControlLaboratorioElectronica_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -207,10 +238,14 @@
       <DependentUpon>LaboratorioElectronica.mdf</DependentUpon>
     </Content>
     <Content Include="recursos\agregar-carpeta.png" />
+    <None Include="recursos\mas.png" />
     <None Include="recursos\refresh.png" />
     <None Include="recursos\minimizar.png" />
     <None Include="recursos\clase.png" />
     <None Include="recursos\finalizar.png" />
+    <None Include="recursos\buscar.png" />
+    <None Include="recursos\editar.png" />
+    <None Include="recursos\eliminar.png" />
     <Content Include="recursos\guardar.png" />
     <Content Include="recursos\lista.png" />
   </ItemGroup>
@@ -225,6 +260,25 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

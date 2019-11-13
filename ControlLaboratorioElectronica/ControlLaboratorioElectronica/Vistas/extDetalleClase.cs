@@ -1,4 +1,5 @@
 ﻿using ControlLaboratorioElectronica.CRUD;
+using ControlLaboratorioElectronica.Lector_PDF;
 using ControlLaboratorioElectronica.Modelos;
 using System;
 using System.Collections;
@@ -18,6 +19,7 @@ namespace ControlLaboratorioElectronica.Vistas
 
 		public string CodigoClase { get; set; }
 		public string HoraEntrada { get; set; }
+		static Clase clase;
 		public extDetalleClase()
 		{
 			InitializeComponent();
@@ -37,7 +39,7 @@ namespace ControlLaboratorioElectronica.Vistas
 		}
 		public void updateInformacionClase()
 		{
-			Clase clase = crudClases.ObtenerClase(this.CodigoClase);
+			clase = crudClases.ObtenerClase(this.CodigoClase);
 			lblNombreDocente.Text = clase.NombreDocente;
 			lblGrupo.Text = clase.Grupo;
 			lblMateria.Text = clase.Materia;
@@ -59,6 +61,14 @@ namespace ControlLaboratorioElectronica.Vistas
 		private void bunifuImageButton1_Click(object sender, EventArgs e)
 		{
 			this.Close();
+			foreach (Form frm in Application.OpenForms)
+			{
+				if (frm.GetType() == typeof(Form1))
+				{
+					frm.WindowState = FormWindowState.Normal;
+					break;
+				}
+			}
 		}
 
 		private void btnMinimizar_Click(object sender, EventArgs e)
@@ -110,6 +120,7 @@ namespace ControlLaboratorioElectronica.Vistas
 							txtAula.Enabled = false;
 							txtNombrePractica.Enabled = false;
 							txtNumPractica.Enabled = false;
+							btnFinClase.Enabled = false;
 						}
 					}
 					
@@ -122,15 +133,20 @@ namespace ControlLaboratorioElectronica.Vistas
 
 		private void btnPaseLista_Click(object sender, EventArgs e)
 		{
+			
 			DialogResult result = MessageBox.Show("¿El pase de lista es correcto?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 			if (result == DialogResult.Yes)
 			{
 				foreach (DataGridViewRow row in dgvListaAlumnos.Rows)
 				{
-					string fecha = DateTime.Now.ToShortDateString();
-					string noControl = Convert.ToString(row.Cells["NoControl"].Value).ToUpper();
-					int asistencia = (Convert.ToBoolean(row.Cells["Asistencia"].Value) == true) ? 1 : 0;
-					crudAlumnos.Asistencia(fecha, noControl, asistencia);
+					var asistencia = new AlmAsistencia
+					{
+						CodigoClase=clase.CodigoClase,
+						Fecha = DateTime.Now.ToShortDateString(),
+						NoControl = Convert.ToString(row.Cells["NoControl"].Value).ToUpper(),
+						Asistio = (Convert.ToBoolean(row.Cells["Asistencia"].Value) == true) ? 1 : 0
+					};
+					crudAlumnos.Asistencia(asistencia);
 				}
 				dgvListaAlumnos.Rows.Clear();
 				dgvListaAlumnos.Refresh();
@@ -139,6 +155,14 @@ namespace ControlLaboratorioElectronica.Vistas
 			}
 		}
 
+		private void btnListaAsistencias_Click(object sender, EventArgs e)
+		{
 
+			PaseLista.crearDocumento(crudAlumnos.ObtenerAsistencias(clase.CodigoClase), clase);
+			extLectorPDF pdf = new extLectorPDF();
+			pdf.documento = CodigoClase;
+			pdf.Show();
+
+		}
 	}
 }

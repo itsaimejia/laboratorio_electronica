@@ -14,15 +14,23 @@ namespace ControlLaboratorioElectronica.Vistas
 {
 	public partial class extNuevaClase : Form
 	{
+		
 		public extNuevaClase()
 		{
 			InitializeComponent();
-			
 		}
 
 		private void bunifuImageButton1_Click(object sender, EventArgs e)
 		{
 			this.Close();
+			foreach (Form frm in Application.OpenForms)
+			{
+				if (frm.GetType() == typeof(Form1))
+				{
+					frm.WindowState = FormWindowState.Normal;
+					break;
+				}
+			}
 		}
 
 		private void btnCargarPractica_Click(object sender, EventArgs e)

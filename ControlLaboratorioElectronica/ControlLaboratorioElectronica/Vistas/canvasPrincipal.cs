@@ -20,9 +20,6 @@ namespace ControlLaboratorioElectronica
 		private void canvasPrincipal_Load(object sender, EventArgs e)
 		{
 			updateDataClases();
-			this.dgvDocentes.Columns[0].ReadOnly = true;
-			this.dgvDocentes.Columns[1].ReadOnly = true;
-			this.dgvDocentes.Columns[1].ReadOnly = true;
 		}
 
 		public void updateDataClases()
@@ -31,6 +28,7 @@ namespace ControlLaboratorioElectronica
 			foreach (var clase in clases)
 			{
 				row = new ArrayList();
+				row.Add(clase.CodigoClase);
 				row.Add(clase.Grupo);
 				row.Add(clase.NombreDocente);
 				row.Add(clase.Materia);
@@ -86,24 +84,22 @@ namespace ControlLaboratorioElectronica
 			if (dgvDocentes.Columns[e.ColumnIndex].Name.Equals("Detalles"))
 			{
 				DataGridViewRow datos = dgvDocentes.Rows[e.RowIndex];
-				string grupo = datos.Cells["Grupo"].Value.ToString();
-				string nombre = datos.Cells["NombreProfesor"].Value.ToString();
-				string materia = datos.Cells["Materia"].Value.ToString();
+				string codigoClase = datos.Cells["Codigo"].Value.ToString();
 				extDetalleClase extDetalleClase = new extDetalleClase()
 				{
-					CodigoClase = codigoClase(grupo, materia, nombre),
+					CodigoClase = codigoClase,
 					HoraEntrada = DateTime.Now.ToString("h:mm:ss")
 				};
 				extDetalleClase.Show();
 			}
-		}
-
-		private void btnNuevaClase_Click(object sender, EventArgs e)
-		{
-			extNuevaClase fr = new extNuevaClase();
-			fr.Show();
-
-			
+			foreach (Form frm in Application.OpenForms)
+			{
+				if (frm.GetType() == typeof(Form1))
+				{
+					frm.WindowState = FormWindowState.Minimized;
+					break;
+				}
+			}
 		}
 
 		private void timer1_Tick(object sender, EventArgs e)
@@ -121,9 +117,27 @@ namespace ControlLaboratorioElectronica
 		{
 			clases = crudClases.ObtenerClases();
 		}
-		public string codigoClase(string grupo, string materia, string nombre)
+		private void btnNueva_Click(object sender, EventArgs e)
 		{
-			return string.Format($"{grupo}{materia.Substring(0, 3)}{nombre.Substring(0, 2)}");
+			extNuevaClase fr = new extNuevaClase();
+			fr.Show();
+			foreach (Form frm in Application.OpenForms)
+			{
+				if (frm.GetType() == typeof(Form1))
+				{
+					frm.WindowState = FormWindowState.Minimized;
+					break;
+				}
+			}
+		}
+
+		private void btnEditar_Click(object sender, EventArgs e)
+		{
+			string CodigoClase = Microsoft.VisualBasic.Interaction.InputBox("Ingrese código de clase","Consulta de clase","").ToUpper();
+			if (crudClases.ObtenerClase(CodigoClase) != null)
+			{
+
+			}
 		}
 	}
 }
