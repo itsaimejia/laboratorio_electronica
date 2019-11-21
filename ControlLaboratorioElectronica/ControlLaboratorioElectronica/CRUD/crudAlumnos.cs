@@ -49,12 +49,7 @@ namespace ControlLaboratorioElectronica.CRUD
 			reader.Close();
 			return alumno;
 		}
-
-		public static void ModificaAlumno(Alumno alumno)
-		{
-
-		}
-
+	
 		public static List<Alumno> ObtenerAlumnos()
 		{
 			List<Alumno> lista = new List<Alumno>();
@@ -95,33 +90,7 @@ namespace ControlLaboratorioElectronica.CRUD
 			return extraer;
 		}
 
-		public static void Asistencia(AlmAsistencia asistencia)
-		{
-			string script = string.Format($"INSERT INTO Asistencias VALUES(" +
-				$"'{asistencia.Fecha}','{asistencia.NoControl}','{asistencia.Asistio}','{asistencia.CodigoClase}')");
-			cmd = new SqlCommand(script, con.AbrirConexion());
-			cmd.ExecuteNonQuery();
-			con.CerrarConexion();
-		}
-
-		public static List<AlmAsistencia> ObtenerAsistencias(string CodigoClase)
-		{
-			List<AlmAsistencia> lista = new List<AlmAsistencia>();
-			string query = $"SELECT Fecha, NoControl, Asistencia FROM Asistencias WHERE CodigoClase='{CodigoClase}'";
-			cmd = new SqlCommand(query, con.AbrirConexion());
-			SqlDataReader reader = cmd.ExecuteReader();
-			while (reader.Read())
-			{
-				lista.Add(new AlmAsistencia
-				{
-					Fecha=Convert.ToString(reader["Fecha"]),
-					NoControl = Convert.ToString(reader["NoControl"]),
-					Asistio = Convert.ToInt32(reader["Asistencia"])
-				});
-			}
-			reader.Close();
-			return lista;
-		}
+		
 		private static void AlumnoClase(string NoControl, string CodigoClase)
 		{
 			string script = string.Format($"INSERT INTO AlumnoClase values(" +

@@ -25,7 +25,7 @@ namespace ControlLaboratorioElectronica.Vistas
 			this.Close();
 			foreach (Form frm in Application.OpenForms)
 			{
-				if (frm.GetType() == typeof(Form1))
+				if (frm.GetType() == typeof(FormPrincipal))
 				{
 					frm.WindowState = FormWindowState.Normal;
 					break;
@@ -70,16 +70,14 @@ namespace ControlLaboratorioElectronica.Vistas
 			}
 			else
 			{
-				string cod = codigoClase(txtGrupo.Text, txtMateria.Text, txtNombre.Text);
 				Clase clase = new Clase()
 				{
-					CodigoClase = cod.ToUpper(),
 					NoEmpleado = txtNoEmpleado.Text.ToUpper(),
 					Grupo = txtGrupo.Text.ToUpper(),
 					Materia = txtMateria.Text.ToUpper(),
 					NombreDocente = txtNombre.Text.ToUpper()
 				};
-
+				clase.CodigoClase = clase.GenerarCodigoClase();
 				Alumno alumno;
 
 				bool correcto = crudClases.Alta(clase);
@@ -108,11 +106,6 @@ namespace ControlLaboratorioElectronica.Vistas
 			}
 			
 
-		}
-
-		public string codigoClase(string grupo, string materia, string nombre)
-		{
-			return string.Format($"{grupo}{materia.Substring(0,3)}{nombre.Substring(0,2)}");
 		}
 	}
 }

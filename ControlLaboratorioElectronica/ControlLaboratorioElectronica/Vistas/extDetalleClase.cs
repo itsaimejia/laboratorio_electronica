@@ -63,7 +63,7 @@ namespace ControlLaboratorioElectronica.Vistas
 			this.Close();
 			foreach (Form frm in Application.OpenForms)
 			{
-				if (frm.GetType() == typeof(Form1))
+				if (frm.GetType() == typeof(FormPrincipal))
 				{
 					frm.WindowState = FormWindowState.Normal;
 					break;
@@ -122,12 +122,16 @@ namespace ControlLaboratorioElectronica.Vistas
 							txtNumPractica.Enabled = false;
 							btnFinClase.Enabled = false;
 						}
+						else
+						{
+							MessageBox.Show("La clase no fue guardada\nREINTENTAR DESPUÉS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
 					}
 					
 				}
 			}catch(Exception ex)
 			{
-
+				MessageBox.Show(ex.ToString());
 			}
 		}
 
@@ -146,7 +150,7 @@ namespace ControlLaboratorioElectronica.Vistas
 						NoControl = Convert.ToString(row.Cells["NoControl"].Value).ToUpper(),
 						Asistio = (Convert.ToBoolean(row.Cells["Asistencia"].Value) == true) ? 1 : 0
 					};
-					crudAlumnos.Asistencia(asistencia);
+					crudAsistencias.Asistencia(asistencia);
 				}
 				dgvListaAlumnos.Rows.Clear();
 				dgvListaAlumnos.Refresh();
@@ -155,14 +159,14 @@ namespace ControlLaboratorioElectronica.Vistas
 			}
 		}
 
-		private void btnListaAsistencias_Click(object sender, EventArgs e)
+		/*private void btnListaAsistencias_Click(object sender, EventArgs e)
 		{
 
-			PaseLista.crearDocumento(crudAlumnos.ObtenerAsistencias(clase.CodigoClase), clase);
+			PaseLista.crearDocumento(crudAsistencias.ObtenerAsistencias(clase.CodigoClase), clase);
 			extLectorPDF pdf = new extLectorPDF();
 			pdf.documento = CodigoClase;
 			pdf.Show();
 
-		}
+		}*/
 	}
 }

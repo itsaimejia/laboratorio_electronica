@@ -31,7 +31,9 @@
 			this.components = new System.ComponentModel.Container();
 			this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnMinimizar = new Bunifu.Framework.UI.BunifuImageButton();
 			this.label5 = new System.Windows.Forms.Label();
+			this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
 			this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -52,21 +54,19 @@
 			this.txtNumPractica = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.txtAula = new Bunifu.Framework.UI.BunifuMaterialTextbox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.btnPaseLista = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			this.btnListaAsistencias = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.btnFinClase = new Bunifu.Framework.UI.BunifuFlatButton();
-			this.btnPaseLista = new Bunifu.Framework.UI.BunifuFlatButton();
-			this.btnMinimizar = new Bunifu.Framework.UI.BunifuImageButton();
-			this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvListaAlumnos)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.groupBox4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// bunifuElipse1
@@ -85,6 +85,20 @@
 			this.panel1.Size = new System.Drawing.Size(739, 40);
 			this.panel1.TabIndex = 2;
 			// 
+			// btnMinimizar
+			// 
+			this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
+			this.btnMinimizar.Image = global::ControlLaboratorioElectronica.Properties.Resources.minimizar;
+			this.btnMinimizar.ImageActive = null;
+			this.btnMinimizar.Location = new System.Drawing.Point(576, 8);
+			this.btnMinimizar.Name = "btnMinimizar";
+			this.btnMinimizar.Size = new System.Drawing.Size(25, 23);
+			this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.btnMinimizar.TabIndex = 6;
+			this.btnMinimizar.TabStop = false;
+			this.btnMinimizar.Zoom = 10;
+			this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
@@ -95,6 +109,20 @@
 			this.label5.Size = new System.Drawing.Size(210, 22);
 			this.label5.TabIndex = 3;
 			this.label5.Text = "Detalles de la clase";
+			// 
+			// bunifuImageButton1
+			// 
+			this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
+			this.bunifuImageButton1.Image = global::ControlLaboratorioElectronica.Properties.Resources.exit;
+			this.bunifuImageButton1.ImageActive = null;
+			this.bunifuImageButton1.Location = new System.Drawing.Point(607, 8);
+			this.bunifuImageButton1.Name = "bunifuImageButton1";
+			this.bunifuImageButton1.Size = new System.Drawing.Size(25, 23);
+			this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.bunifuImageButton1.TabIndex = 2;
+			this.bunifuImageButton1.TabStop = false;
+			this.bunifuImageButton1.Zoom = 10;
+			this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
 			// 
 			// bunifuDragControl1
 			// 
@@ -314,6 +342,7 @@
 			// 
 			// groupBox4
 			// 
+			this.groupBox4.Controls.Add(this.label4);
 			this.groupBox4.Controls.Add(this.btnPaseLista);
 			this.groupBox4.Controls.Add(this.dgvListaAlumnos);
 			this.groupBox4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -324,82 +353,15 @@
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Lista Alumnos";
 			// 
-			// timer1
+			// label4
 			// 
-			this.timer1.Enabled = true;
-			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-			// 
-			// btnListaAsistencias
-			// 
-			this.btnListaAsistencias.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-			this.btnListaAsistencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.btnListaAsistencias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.btnListaAsistencias.BorderRadius = 0;
-			this.btnListaAsistencias.ButtonText = "Lista de asistencias";
-			this.btnListaAsistencias.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnListaAsistencias.DisabledColor = System.Drawing.Color.Gray;
-			this.btnListaAsistencias.Iconcolor = System.Drawing.Color.Transparent;
-			this.btnListaAsistencias.Iconimage = global::ControlLaboratorioElectronica.Properties.Resources.lista;
-			this.btnListaAsistencias.Iconimage_right = null;
-			this.btnListaAsistencias.Iconimage_right_Selected = null;
-			this.btnListaAsistencias.Iconimage_Selected = null;
-			this.btnListaAsistencias.IconMarginLeft = 0;
-			this.btnListaAsistencias.IconMarginRight = 0;
-			this.btnListaAsistencias.IconRightVisible = true;
-			this.btnListaAsistencias.IconRightZoom = 0D;
-			this.btnListaAsistencias.IconVisible = true;
-			this.btnListaAsistencias.IconZoom = 90D;
-			this.btnListaAsistencias.IsTab = false;
-			this.btnListaAsistencias.Location = new System.Drawing.Point(446, 315);
-			this.btnListaAsistencias.Margin = new System.Windows.Forms.Padding(9);
-			this.btnListaAsistencias.Name = "btnListaAsistencias";
-			this.btnListaAsistencias.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.btnListaAsistencias.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-			this.btnListaAsistencias.OnHoverTextColor = System.Drawing.Color.White;
-			this.btnListaAsistencias.selected = false;
-			this.btnListaAsistencias.Size = new System.Drawing.Size(151, 35);
-			this.btnListaAsistencias.TabIndex = 19;
-			this.btnListaAsistencias.Text = "Lista de asistencias";
-			this.btnListaAsistencias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnListaAsistencias.Textcolor = System.Drawing.Color.White;
-			this.btnListaAsistencias.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnListaAsistencias.Click += new System.EventHandler(this.btnListaAsistencias_Click);
-			// 
-			// btnFinClase
-			// 
-			this.btnFinClase.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-			this.btnFinClase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.btnFinClase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.btnFinClase.BorderRadius = 0;
-			this.btnFinClase.ButtonText = "Finalizar clase";
-			this.btnFinClase.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnFinClase.DisabledColor = System.Drawing.Color.Gray;
-			this.btnFinClase.Iconcolor = System.Drawing.Color.Transparent;
-			this.btnFinClase.Iconimage = global::ControlLaboratorioElectronica.Properties.Resources.finalizar;
-			this.btnFinClase.Iconimage_right = null;
-			this.btnFinClase.Iconimage_right_Selected = null;
-			this.btnFinClase.Iconimage_Selected = null;
-			this.btnFinClase.IconMarginLeft = 0;
-			this.btnFinClase.IconMarginRight = 0;
-			this.btnFinClase.IconRightVisible = true;
-			this.btnFinClase.IconRightZoom = 0D;
-			this.btnFinClase.IconVisible = true;
-			this.btnFinClase.IconZoom = 90D;
-			this.btnFinClase.IsTab = false;
-			this.btnFinClase.Location = new System.Drawing.Point(229, 608);
-			this.btnFinClase.Margin = new System.Windows.Forms.Padding(6);
-			this.btnFinClase.Name = "btnFinClase";
-			this.btnFinClase.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.btnFinClase.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-			this.btnFinClase.OnHoverTextColor = System.Drawing.Color.White;
-			this.btnFinClase.selected = false;
-			this.btnFinClase.Size = new System.Drawing.Size(188, 33);
-			this.btnFinClase.TabIndex = 17;
-			this.btnFinClase.Text = "Finalizar clase";
-			this.btnFinClase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnFinClase.Textcolor = System.Drawing.Color.White;
-			this.btnFinClase.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnFinClase.Click += new System.EventHandler(this.btnFinClase_Click);
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(329, 203);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(265, 10);
+			this.label4.TabIndex = 19;
+			this.label4.Text = "*Nota: Presione TAB después de pasar lista al ultimo";
 			// 
 			// btnPaseLista
 			// 
@@ -437,33 +399,46 @@
 			this.btnPaseLista.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnPaseLista.Click += new System.EventHandler(this.btnPaseLista_Click);
 			// 
-			// btnMinimizar
+			// timer1
 			// 
-			this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
-			this.btnMinimizar.Image = global::ControlLaboratorioElectronica.Properties.Resources.minimizar;
-			this.btnMinimizar.ImageActive = null;
-			this.btnMinimizar.Location = new System.Drawing.Point(576, 8);
-			this.btnMinimizar.Name = "btnMinimizar";
-			this.btnMinimizar.Size = new System.Drawing.Size(25, 23);
-			this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.btnMinimizar.TabIndex = 6;
-			this.btnMinimizar.TabStop = false;
-			this.btnMinimizar.Zoom = 10;
-			this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+			this.timer1.Enabled = true;
+			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
-			// bunifuImageButton1
+			// btnFinClase
 			// 
-			this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
-			this.bunifuImageButton1.Image = global::ControlLaboratorioElectronica.Properties.Resources.exit;
-			this.bunifuImageButton1.ImageActive = null;
-			this.bunifuImageButton1.Location = new System.Drawing.Point(607, 8);
-			this.bunifuImageButton1.Name = "bunifuImageButton1";
-			this.bunifuImageButton1.Size = new System.Drawing.Size(25, 23);
-			this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.bunifuImageButton1.TabIndex = 2;
-			this.bunifuImageButton1.TabStop = false;
-			this.bunifuImageButton1.Zoom = 10;
-			this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+			this.btnFinClase.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+			this.btnFinClase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnFinClase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnFinClase.BorderRadius = 0;
+			this.btnFinClase.ButtonText = "Finalizar clase";
+			this.btnFinClase.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnFinClase.DisabledColor = System.Drawing.Color.Gray;
+			this.btnFinClase.Iconcolor = System.Drawing.Color.Transparent;
+			this.btnFinClase.Iconimage = global::ControlLaboratorioElectronica.Properties.Resources.finalizar;
+			this.btnFinClase.Iconimage_right = null;
+			this.btnFinClase.Iconimage_right_Selected = null;
+			this.btnFinClase.Iconimage_Selected = null;
+			this.btnFinClase.IconMarginLeft = 0;
+			this.btnFinClase.IconMarginRight = 0;
+			this.btnFinClase.IconRightVisible = true;
+			this.btnFinClase.IconRightZoom = 0D;
+			this.btnFinClase.IconVisible = true;
+			this.btnFinClase.IconZoom = 90D;
+			this.btnFinClase.IsTab = false;
+			this.btnFinClase.Location = new System.Drawing.Point(229, 608);
+			this.btnFinClase.Margin = new System.Windows.Forms.Padding(6);
+			this.btnFinClase.Name = "btnFinClase";
+			this.btnFinClase.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnFinClase.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+			this.btnFinClase.OnHoverTextColor = System.Drawing.Color.White;
+			this.btnFinClase.selected = false;
+			this.btnFinClase.Size = new System.Drawing.Size(188, 33);
+			this.btnFinClase.TabIndex = 17;
+			this.btnFinClase.Text = "Finalizar clase";
+			this.btnFinClase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnFinClase.Textcolor = System.Drawing.Color.White;
+			this.btnFinClase.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnFinClase.Click += new System.EventHandler(this.btnFinClase_Click);
 			// 
 			// extDetalleClase
 			// 
@@ -471,7 +446,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(640, 656);
-			this.Controls.Add(this.btnListaAsistencias);
 			this.Controls.Add(this.btnFinClase);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox3);
@@ -486,14 +460,15 @@
 			this.Load += new System.EventHandler(this.extDetalleClase_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvListaAlumnos)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox4.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+			this.groupBox4.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -529,7 +504,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn NombreAlumno;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn Asistencia;
 		private Bunifu.Framework.UI.BunifuFlatButton btnPaseLista;
-		private Bunifu.Framework.UI.BunifuFlatButton btnListaAsistencias;
 		private System.ComponentModel.BackgroundWorker backgroundWorker1;
+		private System.Windows.Forms.Label label4;
 	}
 }

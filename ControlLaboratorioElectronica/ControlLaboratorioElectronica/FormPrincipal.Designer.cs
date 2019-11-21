@@ -1,6 +1,6 @@
 ﻿namespace ControlLaboratorioElectronica
 {
-	partial class Form1
+	partial class FormPrincipal
 	{
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -30,7 +30,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
 			this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
 			this.panelMenu = new System.Windows.Forms.Panel();
 			this.panelTransicion = new BunifuAnimatorNS.BunifuTransition(this.components);

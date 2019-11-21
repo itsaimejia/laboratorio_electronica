@@ -91,15 +91,9 @@ namespace ControlLaboratorioElectronica
 					HoraEntrada = DateTime.Now.ToString("h:mm:ss")
 				};
 				extDetalleClase.Show();
+				minimizarFormPrincipal();
 			}
-			foreach (Form frm in Application.OpenForms)
-			{
-				if (frm.GetType() == typeof(Form1))
-				{
-					frm.WindowState = FormWindowState.Minimized;
-					break;
-				}
-			}
+			
 		}
 
 		private void timer1_Tick(object sender, EventArgs e)
@@ -121,22 +115,38 @@ namespace ControlLaboratorioElectronica
 		{
 			extNuevaClase fr = new extNuevaClase();
 			fr.Show();
-			foreach (Form frm in Application.OpenForms)
-			{
-				if (frm.GetType() == typeof(Form1))
-				{
-					frm.WindowState = FormWindowState.Minimized;
-					break;
-				}
-			}
+			minimizarFormPrincipal();
+
 		}
 
 		private void btnEditar_Click(object sender, EventArgs e)
 		{
 			string CodigoClase = Microsoft.VisualBasic.Interaction.InputBox("Ingrese código de clase","Consulta de clase","").ToUpper();
-			if (crudClases.ObtenerClase(CodigoClase) != null)
+			if (CodigoClase != string.Empty)
 			{
+				if (crudClases.ObtenerClase(CodigoClase) != null)
+				{
+					extConsultaClase fr = new extConsultaClase();
+					fr.CodigoClase = CodigoClase;
+					fr.Show();
+					minimizarFormPrincipal();
+				}
+				else
+				{
+					MessageBox.Show("La clase que buscas no existe\nPrueba con un código diferente");
+				}
+			}
+		}
 
+		private static void minimizarFormPrincipal()
+		{
+			foreach (Form frm in Application.OpenForms)
+			{
+				if (frm.GetType() == typeof(FormPrincipal))
+				{
+					frm.WindowState = FormWindowState.Minimized;
+					break;
+				}
 			}
 		}
 	}

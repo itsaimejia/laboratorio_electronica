@@ -35,17 +35,22 @@
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.lblDate = new System.Windows.Forms.Label();
 			this.dgvDocentes = new System.Windows.Forms.DataGridView();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.btnEliminar = new Bunifu.Framework.UI.BunifuImageButton();
-			this.btnEditar = new Bunifu.Framework.UI.BunifuImageButton();
-			this.btnNueva = new Bunifu.Framework.UI.BunifuImageButton();
-			this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
-			this.btnLimpiar = new Bunifu.Framework.UI.BunifuImageButton();
 			this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NombreProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Detalles = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+			this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+			this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+			this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+			this.btnEliminar = new Bunifu.Framework.UI.BunifuImageButton();
+			this.btnEditar = new Bunifu.Framework.UI.BunifuImageButton();
+			this.btnNueva = new Bunifu.Framework.UI.BunifuImageButton();
+			this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+			this.btnLimpiar = new Bunifu.Framework.UI.BunifuImageButton();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
@@ -140,84 +145,10 @@
 			this.dgvDocentes.MultiSelect = false;
 			this.dgvDocentes.Name = "dgvDocentes";
 			this.dgvDocentes.ReadOnly = true;
+			this.dgvDocentes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgvDocentes.Size = new System.Drawing.Size(795, 385);
 			this.dgvDocentes.TabIndex = 3;
 			this.dgvDocentes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocentes_CellContentClick);
-			// 
-			// timer1
-			// 
-			this.timer1.Enabled = true;
-			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-			// 
-			// btnEliminar
-			// 
-			this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.btnEliminar.Image = global::ControlLaboratorioElectronica.Properties.Resources.eliminar;
-			this.btnEliminar.ImageActive = null;
-			this.btnEliminar.Location = new System.Drawing.Point(129, 22);
-			this.btnEliminar.Name = "btnEliminar";
-			this.btnEliminar.Size = new System.Drawing.Size(43, 35);
-			this.btnEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.btnEliminar.TabIndex = 2;
-			this.btnEliminar.TabStop = false;
-			this.btnEliminar.Zoom = 10;
-			// 
-			// btnEditar
-			// 
-			this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.btnEditar.Image = global::ControlLaboratorioElectronica.Properties.Resources.editar;
-			this.btnEditar.ImageActive = null;
-			this.btnEditar.Location = new System.Drawing.Point(68, 22);
-			this.btnEditar.Name = "btnEditar";
-			this.btnEditar.Size = new System.Drawing.Size(43, 35);
-			this.btnEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.btnEditar.TabIndex = 1;
-			this.btnEditar.TabStop = false;
-			this.btnEditar.Zoom = 10;
-			this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-			// 
-			// btnNueva
-			// 
-			this.btnNueva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.btnNueva.Image = global::ControlLaboratorioElectronica.Properties.Resources.mas;
-			this.btnNueva.ImageActive = null;
-			this.btnNueva.Location = new System.Drawing.Point(8, 22);
-			this.btnNueva.Name = "btnNueva";
-			this.btnNueva.Size = new System.Drawing.Size(41, 35);
-			this.btnNueva.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.btnNueva.TabIndex = 0;
-			this.btnNueva.TabStop = false;
-			this.btnNueva.Zoom = 10;
-			this.btnNueva.Click += new System.EventHandler(this.btnNueva_Click);
-			// 
-			// bunifuImageButton1
-			// 
-			this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.bunifuImageButton1.ErrorImage = global::ControlLaboratorioElectronica.Properties.Resources.refresh;
-			this.bunifuImageButton1.Image = global::ControlLaboratorioElectronica.Properties.Resources.refresh;
-			this.bunifuImageButton1.ImageActive = null;
-			this.bunifuImageButton1.Location = new System.Drawing.Point(7, 78);
-			this.bunifuImageButton1.Name = "bunifuImageButton1";
-			this.bunifuImageButton1.Size = new System.Drawing.Size(25, 25);
-			this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.bunifuImageButton1.TabIndex = 9;
-			this.bunifuImageButton1.TabStop = false;
-			this.bunifuImageButton1.Zoom = 10;
-			this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
-			// 
-			// btnLimpiar
-			// 
-			this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
-			this.btnLimpiar.Image = global::ControlLaboratorioElectronica.Properties.Resources.limpiar;
-			this.btnLimpiar.ImageActive = null;
-			this.btnLimpiar.Location = new System.Drawing.Point(336, 37);
-			this.btnLimpiar.Name = "btnLimpiar";
-			this.btnLimpiar.Size = new System.Drawing.Size(30, 34);
-			this.btnLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.btnLimpiar.TabIndex = 4;
-			this.btnLimpiar.TabStop = false;
-			this.btnLimpiar.Zoom = 10;
-			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
 			// 
 			// Codigo
 			// 
@@ -258,6 +189,92 @@
 			this.Detalles.Text = "Detalles";
 			this.Detalles.UseColumnTextForButtonValue = true;
 			this.Detalles.Width = 90;
+			// 
+			// timer1
+			// 
+			this.timer1.Enabled = true;
+			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
+			// toolTip1
+			// 
+			this.toolTip1.AutoPopDelay = 5000;
+			this.toolTip1.InitialDelay = 500;
+			this.toolTip1.ReshowDelay = 10;
+			// 
+			// btnEliminar
+			// 
+			this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnEliminar.Image = global::ControlLaboratorioElectronica.Properties.Resources.eliminar;
+			this.btnEliminar.ImageActive = null;
+			this.btnEliminar.Location = new System.Drawing.Point(129, 22);
+			this.btnEliminar.Name = "btnEliminar";
+			this.btnEliminar.Size = new System.Drawing.Size(43, 35);
+			this.btnEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.btnEliminar.TabIndex = 2;
+			this.btnEliminar.TabStop = false;
+			this.toolTip3.SetToolTip(this.btnEliminar, "Eliminar clase");
+			this.btnEliminar.Zoom = 10;
+			// 
+			// btnEditar
+			// 
+			this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnEditar.Image = global::ControlLaboratorioElectronica.Properties.Resources.editar;
+			this.btnEditar.ImageActive = null;
+			this.btnEditar.Location = new System.Drawing.Point(68, 22);
+			this.btnEditar.Name = "btnEditar";
+			this.btnEditar.Size = new System.Drawing.Size(43, 35);
+			this.btnEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.btnEditar.TabIndex = 1;
+			this.btnEditar.TabStop = false;
+			this.toolTip2.SetToolTip(this.btnEditar, "Consultar/Editar pase de lista");
+			this.btnEditar.Zoom = 10;
+			this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+			// 
+			// btnNueva
+			// 
+			this.btnNueva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnNueva.Image = global::ControlLaboratorioElectronica.Properties.Resources.mas;
+			this.btnNueva.ImageActive = null;
+			this.btnNueva.Location = new System.Drawing.Point(8, 22);
+			this.btnNueva.Name = "btnNueva";
+			this.btnNueva.Size = new System.Drawing.Size(41, 35);
+			this.btnNueva.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.btnNueva.TabIndex = 0;
+			this.btnNueva.TabStop = false;
+			this.toolTip1.SetToolTip(this.btnNueva, "Añadir nueva clase");
+			this.btnNueva.Zoom = 10;
+			this.btnNueva.Click += new System.EventHandler(this.btnNueva_Click);
+			// 
+			// bunifuImageButton1
+			// 
+			this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.bunifuImageButton1.ErrorImage = global::ControlLaboratorioElectronica.Properties.Resources.refresh;
+			this.bunifuImageButton1.Image = global::ControlLaboratorioElectronica.Properties.Resources.refresh;
+			this.bunifuImageButton1.ImageActive = null;
+			this.bunifuImageButton1.Location = new System.Drawing.Point(7, 78);
+			this.bunifuImageButton1.Name = "bunifuImageButton1";
+			this.bunifuImageButton1.Size = new System.Drawing.Size(25, 25);
+			this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.bunifuImageButton1.TabIndex = 9;
+			this.bunifuImageButton1.TabStop = false;
+			this.toolTip4.SetToolTip(this.bunifuImageButton1, "Actualizar listado de clases");
+			this.bunifuImageButton1.Zoom = 10;
+			this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
+			// 
+			// btnLimpiar
+			// 
+			this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
+			this.btnLimpiar.Image = global::ControlLaboratorioElectronica.Properties.Resources.limpiar;
+			this.btnLimpiar.ImageActive = null;
+			this.btnLimpiar.Location = new System.Drawing.Point(336, 37);
+			this.btnLimpiar.Name = "btnLimpiar";
+			this.btnLimpiar.Size = new System.Drawing.Size(30, 34);
+			this.btnLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.btnLimpiar.TabIndex = 4;
+			this.btnLimpiar.TabStop = false;
+			this.toolTip5.SetToolTip(this.btnLimpiar, "Limpiar busqueda");
+			this.btnLimpiar.Zoom = 10;
+			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
 			// 
 			// canvasPrincipal
 			// 
@@ -302,5 +319,10 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn NombreProfesor;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
 		private System.Windows.Forms.DataGridViewButtonColumn Detalles;
+		private System.Windows.Forms.ToolTip toolTip1;
+		private System.Windows.Forms.ToolTip toolTip2;
+		private System.Windows.Forms.ToolTip toolTip3;
+		private System.Windows.Forms.ToolTip toolTip4;
+		private System.Windows.Forms.ToolTip toolTip5;
 	}
 }

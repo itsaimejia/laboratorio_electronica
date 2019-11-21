@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ControlLaboratorioElectronica
 {
-	public partial class Form1 : Form
+	public partial class FormPrincipal : Form
 	{
-		public Form1()
+		public FormPrincipal()
 		{
 			InitializeComponent();
 			var form = Application.OpenForms.OfType<canvasPrincipal>().FirstOrDefault();

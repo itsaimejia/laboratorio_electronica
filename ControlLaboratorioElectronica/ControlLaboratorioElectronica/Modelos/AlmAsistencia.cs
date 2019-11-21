@@ -10,5 +10,10 @@ namespace ControlLaboratorioElectronica.Modelos
 	{
 		public string Fecha { get; set; }
 		public int Asistio { get; set; }
+
+		public override string ToString()
+		{
+			return $"{Fecha}-{NoControl}-{Asistio}";
+		}
 	}
 }
