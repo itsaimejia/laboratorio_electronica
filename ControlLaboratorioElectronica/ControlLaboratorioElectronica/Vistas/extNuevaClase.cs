@@ -75,7 +75,8 @@ namespace ControlLaboratorioElectronica.Vistas
 					NoEmpleado = txtNoEmpleado.Text.ToUpper(),
 					Grupo = txtGrupo.Text.ToUpper(),
 					Materia = txtMateria.Text.ToUpper(),
-					NombreDocente = txtNombre.Text.ToUpper()
+					NombreDocente = txtNombre.Text.ToUpper(),
+					Activa = 1
 				};
 				clase.CodigoClase = clase.GenerarCodigoClase();
 				Alumno alumno;
@@ -104,8 +105,6 @@ namespace ControlLaboratorioElectronica.Vistas
 					MessageBox.Show("No se agregó la clase, revisar");
 				}
 			}
-			
-
 		}
 	}
 }

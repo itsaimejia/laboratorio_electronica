@@ -133,7 +133,7 @@ namespace ControlLaboratorioElectronica
 				}
 				else
 				{
-					MessageBox.Show("La clase que buscas no existe\nPrueba con un código diferente");
+					MessageBox.Show("La clase que buscas no existe\nO se encuentra inactiva\n", "Prueba con un código diferente",MessageBoxButtons.OK,MessageBoxIcon.Warning);
 				}
 			}
 		}
@@ -146,6 +146,33 @@ namespace ControlLaboratorioElectronica
 				{
 					frm.WindowState = FormWindowState.Minimized;
 					break;
+				}
+			}
+		}
+
+		private void btnApagar_Click(object sender, EventArgs e)
+		{
+			string CodigoClase = Microsoft.VisualBasic.Interaction.InputBox("Ingrese código de clase", "Desactivar clase","").ToUpper();
+			if (CodigoClase != string.Empty)
+			{
+				if (crudClases.ObtenerClase(CodigoClase) != null)
+				{
+					DialogResult result = MessageBox.Show($"Vas a descativar la clase: {CodigoClase}\n¿Deseas continuar?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+					if (result == DialogResult.Yes)
+					{
+						if (crudClases.DesactivarClase(CodigoClase))
+						{
+							MessageBox.Show("Clase desactivada", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							recargaListado();
+							RefrescarTabla();
+						}
+						else
+							MessageBox.Show("La clase no fue desactivada\nPrueba después", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+				}
+				else
+				{
+					MessageBox.Show("La clase que buscas no existe\nO ya se encuentra inactiva\n", "Prueba con un código diferente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				}
 			}
 		}

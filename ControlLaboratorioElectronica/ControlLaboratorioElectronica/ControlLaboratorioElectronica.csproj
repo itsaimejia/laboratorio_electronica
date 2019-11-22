@@ -265,6 +265,7 @@
     <None Include="recursos\buscar.png" />
     <None Include="recursos\editar.png" />
     <None Include="recursos\eliminar.png" />
+    <None Include="recursos\apagado.png" />
     <Content Include="recursos\guardar.png" />
     <Content Include="recursos\lista.png" />
   </ItemGroup>

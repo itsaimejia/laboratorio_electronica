@@ -13,6 +13,7 @@ namespace ControlLaboratorioElectronica.Modelos
 		public string NoEmpleado { get; set; }
 		public string NombreDocente { get; set; }
 		public string Materia { get; set; }
+		public int Activa { get; set; }
 
 		public string GenerarCodigoClase()
 		{

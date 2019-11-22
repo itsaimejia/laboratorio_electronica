@@ -192,10 +192,10 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.Location = new System.Drawing.Point(6, 213);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(285, 10);
+			this.label2.Size = new System.Drawing.Size(243, 12);
 			this.label2.TabIndex = 5;
 			this.label2.Text = "*Nota: Presione TAB después de ingresar el ultimo nombre";
 			// 

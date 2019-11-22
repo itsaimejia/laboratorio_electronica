@@ -26,7 +26,7 @@ namespace ControlLaboratorioElectronica.CRUD
 		public static List<Clase> ObtenerClases()
 		{
 			List<Clase> lista = new List<Clase>();
-			string query = @"SELECT CodigoClase, NoEmpleado, Grupo, Materia, NombreDocente FROM Clases";
+			string query = "SELECT * FROM Clases WHERE Activa = 1";
 			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());
 			SqlDataReader reader = cmd.ExecuteReader();
 			while (reader.Read())
@@ -47,7 +47,7 @@ namespace ControlLaboratorioElectronica.CRUD
 		public static Clase ObtenerClase(string CodigoClase)
 		{
 			Clase clase = null;
-			string query = $"SELECT * FROM Clases WHERE CodigoClase='{CodigoClase}'";
+			string query = $"SELECT * FROM Clases WHERE CodigoClase='{CodigoClase}' AND Activa = 1";
 			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());
 			SqlDataReader reader = cmd.ExecuteReader();
 			while (reader.Read())
@@ -69,6 +69,17 @@ namespace ControlLaboratorioElectronica.CRUD
 		{
 			string query = string.Format($"INSERT INTO ClasesConcluidas VALUES(" +
 				$"'{clase.Fecha}', '{clase.HoraEntrada}','{clase.HoraSalida}','{clase.CodigoClase}','{clase.Aula}','{clase.NoPractica}','{clase.NombrePractica}')");
+			cmd = new SqlCommand(query, con.AbrirConexion());
+			int filasAfectadas = cmd.ExecuteNonQuery();
+			con.CerrarConexion();
+			return (filasAfectadas > 0) ? true : false;
+		}
+
+		public static bool DesactivarClase(string CodigoClase)
+		{
+			string query = string.Format($"UPDATE Clases " +
+				$"SET Activa = 0" +
+				$"WHERE CodigoClase = '{CodigoClase}'");
 			cmd = new SqlCommand(query, con.AbrirConexion());
 			int filasAfectadas = cmd.ExecuteNonQuery();
 			con.CerrarConexion();

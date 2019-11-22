@@ -231,6 +231,7 @@
 			// btnPDF
 			// 
 			this.btnPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
+			this.btnPDF.Enabled = false;
 			this.btnPDF.Image = global::ControlLaboratorioElectronica.Properties.Resources.pdf;
 			this.btnPDF.ImageActive = null;
 			this.btnPDF.Location = new System.Drawing.Point(603, 455);
