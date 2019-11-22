@@ -16,7 +16,7 @@ namespace ControlLaboratorioElectronica.CRUD
 		private static SqlCommand cmd;
 		public static void Alta(Alumno alumno)
 		{
-			if (!Existe(alumno.NoControl))
+			if (Consulta(alumno.NoControl)==null)
 			{
 				string script = string.Format($"INSERT INTO Alumnos values(" +
 				$"'{alumno.NoControl}','{alumno.Nombre}')");
@@ -98,14 +98,6 @@ namespace ControlLaboratorioElectronica.CRUD
 			cmd = new SqlCommand(script, con.AbrirConexion());
 			cmd.ExecuteNonQuery();
 			con.CerrarConexion();
-		}
-		private static bool Existe(string NoControl)
-		{
-			string query = $"SELECT COUNT(*) FROM Alumnos WHERE NoControl={NoControl}";
-			SqlCommand cmd = new SqlCommand(query, con.AbrirConexion());
-			cmd.Parameters.AddWithValue("NoControl", NoControl);
-			int count = Convert.ToInt32(cmd.ExecuteScalar());
-			return (count == 0) ? false : true;
 		}
 	}
 }

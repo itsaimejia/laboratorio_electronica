@@ -16,7 +16,7 @@ namespace ControlLaboratorioElectronica.CRUD
 		public bool Alta(Clase clase)
 		{
 			string query = string.Format($"INSERT INTO Clases VALUES(" +
-				$"'{clase.CodigoClase}', '{clase.NoEmpleado}','{clase.Grupo}','{clase.Materia}','{clase.NombreDocente}')");
+				$"'{clase.CodigoClase}', '{clase.NoEmpleado}','{clase.Grupo}','{clase.Materia}','{clase.NombreDocente}','{clase.Activa}')");
 			cmd = new SqlCommand(query, con.AbrirConexion());
 			int filasAfectadas = cmd.ExecuteNonQuery();
 			con.CerrarConexion();

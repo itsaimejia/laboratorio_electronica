@@ -44,12 +44,12 @@
 			this.dgvListaAlumnos = new System.Windows.Forms.DataGridView();
 			this.NoControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NombreAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.lblCambios = new System.Windows.Forms.Label();
-			this.btnPDF = new Bunifu.Framework.UI.BunifuImageButton();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.btnPDF = new Bunifu.Framework.UI.BunifuImageButton();
 			this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnActualizar = new Bunifu.Framework.UI.BunifuFlatButton();
+			this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -93,7 +93,7 @@
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label5.ForeColor = System.Drawing.Color.White;
-			this.label5.Location = new System.Drawing.Point(156, 8);
+			this.label5.Location = new System.Drawing.Point(331, 9);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(150, 22);
 			this.label5.TabIndex = 3;
@@ -199,7 +199,6 @@
 			this.dgvListaAlumnos.Size = new System.Drawing.Size(777, 272);
 			this.dgvListaAlumnos.TabIndex = 15;
 			this.toolTip2.SetToolTip(this.dgvListaAlumnos, "*NOTA: No olvides presionar TAB al realizar un cambio o cambia de fila");
-			this.dgvListaAlumnos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.Cambios);
 			// 
 			// NoControl
 			// 
@@ -216,17 +215,6 @@
 			this.NombreAlumno.ReadOnly = true;
 			this.NombreAlumno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			this.NombreAlumno.Width = 250;
-			// 
-			// lblCambios
-			// 
-			this.lblCambios.AutoSize = true;
-			this.lblCambios.ForeColor = System.Drawing.Color.Red;
-			this.lblCambios.Location = new System.Drawing.Point(674, 144);
-			this.lblCambios.Name = "lblCambios";
-			this.lblCambios.Size = new System.Drawing.Size(140, 13);
-			this.lblCambios.TabIndex = 16;
-			this.lblCambios.Text = "*Tienes cambios sin guardar";
-			this.lblCambios.Visible = false;
 			// 
 			// btnPDF
 			// 
@@ -294,8 +282,14 @@
 			this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnActualizar.Textcolor = System.Drawing.Color.White;
 			this.btnActualizar.TextFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnActualizar.Visible = false;
 			this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+			// 
+			// bunifuDragControl1
+			// 
+			this.bunifuDragControl1.Fixed = true;
+			this.bunifuDragControl1.Horizontal = true;
+			this.bunifuDragControl1.TargetControl = this.panel1;
+			this.bunifuDragControl1.Vertical = true;
 			// 
 			// extConsultaClase
 			// 
@@ -306,14 +300,13 @@
 			this.Controls.Add(this.btnActualizar);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.btnPDF);
-			this.Controls.Add(this.lblCambios);
 			this.Controls.Add(this.dgvListaAlumnos);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.panel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "extConsultaClase";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "extModificaClase";
+			this.Text = "Consulta clase";
 			this.Load += new System.EventHandler(this.extConsultaClase_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
@@ -345,11 +338,11 @@
 		private System.Windows.Forms.DataGridView dgvListaAlumnos;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NoControl;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NombreAlumno;
-		private System.Windows.Forms.Label lblCambios;
 		private Bunifu.Framework.UI.BunifuImageButton btnPDF;
 		private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.ToolTip toolTip2;
 		private System.Windows.Forms.Label label4;
 		private Bunifu.Framework.UI.BunifuFlatButton btnActualizar;
+		private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
 	}
 }

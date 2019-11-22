@@ -20,6 +20,8 @@ namespace ControlLaboratorioElectronica
 		private void canvasPrincipal_Load(object sender, EventArgs e)
 		{
 			updateDataClases();
+			recargaListado();
+			RefrescarTabla();
 		}
 
 		public void updateDataClases()

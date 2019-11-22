@@ -23,7 +23,7 @@ namespace ControlLaboratorioElectronica.Vistas
 		public extDetalleClase()
 		{
 			InitializeComponent();
-			
+			this.Text = this.CodigoClase;
 		}
 
 		public extDetalleClase(string codigoClase)
@@ -59,6 +59,11 @@ namespace ControlLaboratorioElectronica.Vistas
 		}
 
 		private void bunifuImageButton1_Click(object sender, EventArgs e)
+		{
+			CerrarFormulario();
+		}
+
+		public void CerrarFormulario()
 		{
 			this.Close();
 			foreach (Form frm in Application.OpenForms)
@@ -111,7 +116,7 @@ namespace ControlLaboratorioElectronica.Vistas
 							CodigoClase = this.CodigoClase,
 							Aula = txtAula.Text,
 							NoPractica = txtNumPractica.Text,
-							NombrePractica = txtNombrePractica.Text
+							NombrePractica = txtNombrePractica.Text.ToUpper()
 						});
 
 						if (correcto)
@@ -127,7 +132,6 @@ namespace ControlLaboratorioElectronica.Vistas
 							MessageBox.Show("La clase no fue guardada\nREINTENTAR DESPUÉS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						}
 					}
-					
 				}
 			}catch(Exception ex)
 			{

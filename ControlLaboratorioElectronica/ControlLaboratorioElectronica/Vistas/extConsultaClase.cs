@@ -110,11 +110,6 @@ namespace ControlLaboratorioElectronica.Vistas
 			this.WindowState = FormWindowState.Minimized;
 		}
 
-		private void Cambios(object sender, DataGridViewCellCancelEventArgs e)
-		{
-			lblCambios.Visible = true;
-			btnActualizar.Visible = true;
-		}
 
 		private void btnActualizar_Click(object sender, EventArgs e)
 		{
@@ -159,8 +154,7 @@ namespace ControlLaboratorioElectronica.Vistas
 
 			if (exito > 0)
 				MessageBox.Show("Cambios guardados", "Cambios",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-			lblCambios.Visible = false;
 		}
+
 	}
 }
