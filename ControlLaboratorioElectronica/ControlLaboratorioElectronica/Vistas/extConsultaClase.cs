@@ -48,40 +48,43 @@ namespace ControlLaboratorioElectronica.Vistas
 			//Consulta de las asistencias de la clase
 			listaConsulta = crudAsistencias.ObtenerAsistencias(CodigoClase);
 
-			//creacion y adicion de las columnas por fecha 
-			DataGridViewCheckBoxColumn dgvcheck;
-			string fechaCurrent = listaConsulta[0].Fecha;
-			int i = 0;
-			dgvcheck = new DataGridViewCheckBoxColumn();
-			dgvcheck.Name = "fecha" + i;
-			dgvcheck.HeaderText = fechaCurrent;
-			dgvListaAlumnos.Columns.Add(dgvcheck);
 
-			foreach (var f in listaConsulta)
+			if (listaConsulta.Count > 0)
 			{
-				if (fechaCurrent != f.Fecha)
+				//creacion y adicion de las columnas por fecha 
+				DataGridViewCheckBoxColumn dgvcheck;
+				string fechaCurrent = listaConsulta[0].Fecha;
+				int i = 0;
+				dgvcheck = new DataGridViewCheckBoxColumn();
+				dgvcheck.Name = "fecha" + i;
+				dgvcheck.HeaderText = fechaCurrent;
+				dgvListaAlumnos.Columns.Add(dgvcheck);
+
+				foreach (var f in listaConsulta)
 				{
-					i++;
-					dgvcheck = new DataGridViewCheckBoxColumn();
-					dgvcheck.Name = "fecha" + i;
-					dgvcheck.HeaderText = f.Fecha;
-					fechaCurrent = f.Fecha;
-					dgvListaAlumnos.Columns.Add(dgvcheck);
+					if (fechaCurrent != f.Fecha)
+					{
+						i++;
+						dgvcheck = new DataGridViewCheckBoxColumn();
+						dgvcheck.Name = "fecha" + i;
+						dgvcheck.HeaderText = f.Fecha;
+						fechaCurrent = f.Fecha;
+						dgvListaAlumnos.Columns.Add(dgvcheck);
+					}
+				}
+
+				//relleno de la lista segun las asistencias
+				foreach (DataGridViewRow r in dgvListaAlumnos.Rows)
+				{
+					var asistenciasAlumno = listaConsulta.Where(x => x.NoControl == Convert.ToString(r.Cells["NoControl"].Value)).ToList();
+					int p = 0;
+					foreach (var c in asistenciasAlumno)
+					{
+						r.Cells["fecha" + p].Value = (c.Asistio == 1) ? true : false;
+						p++;
+					}
 				}
 			}
-
-			//relleno de la lista segun las asistencias
-			foreach (DataGridViewRow r in dgvListaAlumnos.Rows)
-			{
-				var asistenciasAlumno = listaConsulta.Where(x => x.NoControl == Convert.ToString(r.Cells["NoControl"].Value)).ToList();
-				int p = 0;
-				foreach (var c in asistenciasAlumno)
-				{
-					r.Cells["fecha" + p].Value = (c.Asistio == 1) ? true : false;
-					p++;
-				}
-			}
-
 
 		}
 

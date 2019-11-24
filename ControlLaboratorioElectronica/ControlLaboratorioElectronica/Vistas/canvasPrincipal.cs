@@ -178,5 +178,32 @@ namespace ControlLaboratorioElectronica
 				}
 			}
 		}
+
+		private void btnEliminar_Click(object sender, EventArgs e)
+		{
+			string CodigoClase = Microsoft.VisualBasic.Interaction.InputBox("Ingrese código de clase", "Eliminar clase", "").ToUpper();
+			if (CodigoClase != string.Empty)
+			{
+				if (crudClases.ObtenerClase(CodigoClase) != null)
+				{
+					DialogResult result = MessageBox.Show($"Vas a eliminar la clase: {CodigoClase}\n¿Deseas continuar?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+					if (result == DialogResult.Yes)
+					{
+						if (crudClases.EliminarClase(CodigoClase))
+						{
+							MessageBox.Show("Clase eliminada", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							recargaListado();
+							RefrescarTabla();
+						}
+						else
+							MessageBox.Show("La clase no fue eliminada\nPrueba después", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+				}
+				else
+				{
+					MessageBox.Show("La clase que buscas no existe", "Prueba con un código diferente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+			}
+		}
 	}
 }

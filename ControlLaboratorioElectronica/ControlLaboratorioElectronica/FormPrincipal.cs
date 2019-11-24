@@ -112,7 +112,7 @@ namespace ControlLaboratorioElectronica
 
 		private void btnCerrar_Click(object sender, EventArgs e)
 		{
-			Environment.Exit(0);
+			this.Close();
 		}
 
 		private void btnMinimizar_Click(object sender, EventArgs e)

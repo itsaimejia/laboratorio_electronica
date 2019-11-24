@@ -85,5 +85,17 @@ namespace ControlLaboratorioElectronica.CRUD
 			con.CerrarConexion();
 			return (filasAfectadas > 0) ? true : false;
 		}
+
+		public static bool EliminarClase(string CodigoClase)
+		{
+			string query = string.Format($"DELETE FROM AlumnoClase WHERE CodigoClase='{CodigoClase}'" +
+				$"DELETE FROM Asistencias WHERE CodigoClase = '{CodigoClase}'" +
+				$"DELETE FROM ClasesConcluidas WHERE CodigoClase = '{CodigoClase}'" +
+				$"DELETE FROM Clases WHERE CodigoClase = '{CodigoClase}'");
+			cmd = new SqlCommand(query, con.AbrirConexion());
+			int filasAfectadas = cmd.ExecuteNonQuery();
+			con.CerrarConexion();
+			return (filasAfectadas > 0) ? true : false;
+		}
 	}
 }

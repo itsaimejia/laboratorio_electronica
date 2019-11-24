@@ -130,14 +130,13 @@
 			this.btnApagar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.btnApagar.TabIndex = 3;
 			this.btnApagar.TabStop = false;
-			this.toolTip3.SetToolTip(this.btnApagar, "Eliminar clase");
+			this.toolTip3.SetToolTip(this.btnApagar, "Apagar clase");
 			this.btnApagar.Zoom = 10;
 			this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
 			// 
 			// btnEliminar
 			// 
-			this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(57)))), ((int)(((byte)(106)))));
-			this.btnEliminar.Enabled = false;
+			this.btnEliminar.BackColor = System.Drawing.Color.Red;
 			this.btnEliminar.Image = global::ControlLaboratorioElectronica.Properties.Resources.eliminar;
 			this.btnEliminar.ImageActive = null;
 			this.btnEliminar.Location = new System.Drawing.Point(184, 21);
@@ -148,6 +147,7 @@
 			this.btnEliminar.TabStop = false;
 			this.toolTip3.SetToolTip(this.btnEliminar, "Eliminar clase");
 			this.btnEliminar.Zoom = 10;
+			this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
 			// 
 			// btnEditar
 			// 

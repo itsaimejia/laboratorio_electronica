@@ -13,14 +13,16 @@ namespace ControlLaboratorioElectronica.CRUD
 	class Conexion
 	{
 
-		//private SqlConnection con = new SqlConnection(Properties.Settings.Default.Conectar);
-		private SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\itsai\Source\Repos\itsaimejia\laboratorio_electronica\ControlLaboratorioElectronica\ControlLaboratorioElectronica\LaboratorioElectronica.mdf;Integrated Security=True;Connect Timeout=30");
+		//Conexion general
+		private SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\LaboratorioElectronica.mdf;Integrated Security=True;Connect Timeout=30");
+		
+		//Conexion local
+		//private SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\itsai\Source\Repos\itsaimejia\laboratorio_electronica\ControlLaboratorioElectronica\ControlLaboratorioElectronica\LaboratorioElectronica.mdf;Integrated Security=True;Connect Timeout=30");
 
 		public SqlConnection AbrirConexion()
 		{
 			if (con.State == ConnectionState.Closed)
 				con.Open();
-
 			return con;
 		}
 
